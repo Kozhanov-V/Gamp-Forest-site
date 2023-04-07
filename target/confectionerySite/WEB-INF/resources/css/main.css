@@ -1,0 +1,280 @@
+@font-face {
+    font-family: PlayfairDisplay; /* Имя шрифта */
+    src: url(../fonts/PlayfairDisplay.ttf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+    font-family: PlayfairDisplayRegular; /* Имя шрифта */
+    src: url(../fonts/Playfair_Display_Regular.ttf); /* Путь к файлу со шрифтом */
+}
+html{
+    position: relative;
+    left: -8px;
+    top: -4px;
+    font-family: PlayfairDisplayRegular;
+    background: #FFFCF5;
+}
+.body{
+    justify-content: center;
+}
+
+h1{
+    font-size: 70px;
+}
+
+h2{
+    font-size: 50px;
+}
+
+h3{
+    font-family: PlayfairDisplayRegular;
+    font-size: 32px;
+}
+
+p{
+    font-size: 18px;
+}
+
+.header{
+    position: absolute;
+    margin-top: 92px;
+    margin-bottom: 20px;
+    left: 55px;
+    right: 50px;
+    width: 1800px;
+    height: 195px;
+    display: flex;
+}
+header{
+    position: relative;
+    width: 1903px;
+    height: 195px;
+    background-color: #FFFAF3;
+}
+
+.main--header{
+    color: #C08D5D;
+}
+
+.left--menu--header{
+    position: relative;
+    margin-top: -40px;
+    left: 230px;
+    width: 600px;
+    height: 195px;
+    display: flex;
+    justify-content: center;
+}
+
+.left--menu--header h3{
+    margin-right: 105px;
+    letter-spacing: 2px;
+}
+
+.header--logo{
+    position: relative;
+    margin-top: -20px;
+    left: 315px;
+    width: 52px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.right--menu--header{
+    position: relative;
+    margin-top: 0px;
+    left: 370px;
+    width: 600px;
+    height: 195px;
+    display: flex;
+    justify-content: center;
+}
+
+.right--menu--header h3{
+    margin-right: 96px;
+    letter-spacing: 2px;
+}
+
+
+
+.stock--help--header{
+    position: relative;
+    margin-top: -40px;
+    margin-bottom: 20px;
+    left: 133px;
+    right: 50px;
+    width: 600px;
+    height: 195px;
+    display: flex;
+    justify-content: center;
+}
+.login--signup--header{
+    position: relative;
+    margin-top: -45px;
+    margin-bottom: 20px;
+    left: 40px;
+    right: 50px;
+    width: 600px;
+    height: 195px;
+    display: flex;
+    justify-content: center;
+}
+
+.login--signup--header span{
+    font-family: PlayfairDisplay;
+    font-size: 32px;
+}
+
+.login--header {
+    position: relative;
+    height: 37px;
+    left: 46px;
+    top: 35px;
+    border: none;
+    outline: none;
+    background-color: #FFFAF3;
+}
+.signup--header{
+    position: relative;
+    top: 32px;
+    left: 58px;
+    border:none;
+    outline: none;
+    width: 145px;
+    height: 53px;
+    background-color: #C08D5D;
+    border-radius: 15px;
+}
+.signup--header span{
+    color: #FFFAF3;
+}
+
+
+<!-- ------------------------------------------- -->
+.main{
+  width: 1903px;
+}
+
+.first--block{
+    position: relative;
+    margin-top: 92px;
+    margin-bottom: 20px;
+    left: 55px;
+    right: 50px;
+    width: 1650px;
+    height: 850px;
+    display: flex;
+    background: #FFFAF3;
+}
+
+
+
+.main--text--first--block{
+    position: relative;
+    margin-top: 60px;
+    left: 230px;
+    width: 900px;
+    height: 195px;
+    display: block;
+}
+
+
+
+.name--company--first--block img{
+    position: relative;
+    top: -83px;
+    left: 184px;
+}
+
+.name--company--first--block h1{
+    position: relative;
+    top: -110px;
+}
+
+.img--splitter--text--first--block{
+    position: relative;
+    top: -105px;
+    left: 0px;
+    right: 0px;
+    height: 16px;
+    display: flex;
+}
+
+.main--text--first--block p{
+    position: relative;
+    top: -142px;
+    left: -227px;
+    letter-spacing: 2px;
+    width: 460px;
+    letter-spacing: 1.3px;
+    line-height: 27px;
+}
+
+.catalog--button--first--block{
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    left: 55px;
+    right: 50px;
+    width: 500px;
+    height: 195px;
+    display: flex;
+}
+
+.catalog--button{
+    position: relative;
+    top: -186px;
+    left: -54px;
+    outline: none;
+    width: 265px;
+    height: 85px;
+    background: #FFFAF3;
+    border-radius: 10px;
+    border: 2px solid #C08D5D;
+}
+
+.catalog--button span{
+    top: 24px;
+    color: black;
+    position: absolute;
+    left: 22px;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+.arrow--in--button{
+    width: 80px;
+    height: 83px;
+    background-color: #C08D5D;
+    border-radius: 10px;
+    position: absolute;
+    top: 0px;
+    left: 183px;
+}
+.arrow--in--button img{
+    position: absolute;
+    top: 33px;
+    left: 26px;
+}
+
+.main--image--first--block{
+    position: absolute;
+    top: 60px;
+    left: 900px;
+}
+
+.layer--blur--first--block{
+    position: absolute;
+    top: 949px;
+    left: 26px;
+}
+
+
+<!-- ------------------------------------------- -->
+
+
+footer{
+    position: relative;
+    height: 300px;
+    width: 300px;
+    background-color: green;
+}

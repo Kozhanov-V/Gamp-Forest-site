@@ -21,11 +21,14 @@
 
     <mvc:annotation-driven/>
 
+    <mvc:resources mapping="/**" location="WEB-INF/resources/" />
+
+
     <aop:aspectj-autoproxy/>
 
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/view/" />
+        <property name="prefix" value="/WEB-INF/view/jsps/" />
         <property name="suffix" value=".jsp" />
     </bean>
 
@@ -53,6 +56,20 @@
           class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
+
+    <bean id="resourceHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="order" value="1"/>
+        <property name="mappings">
+            <props>
+                <prop key="/resources/**">resourceHttpRequestHandler</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="resourceHttpRequestHandler" class="org.springframework.web.servlet.resource.ResourceHttpRequestHandler">
+        <property name="locations" value="/resources/"/>
+    </bean>
+
 
     <tx:annotation-driven transaction-manager="transactionManager" />
 

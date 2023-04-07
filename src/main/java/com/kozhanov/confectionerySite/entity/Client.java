@@ -14,7 +14,7 @@ public class Client {
     @Column(name = "full_name", nullable = false)
     private String fullName;
 
-    @Column(name = "phone")
+    @Column(name = "phone",nullable = false)
     private String phone;
 
     @Column(name = "email")
@@ -23,7 +23,7 @@ public class Client {
     @Column(name = "delivery_address")
     private String deliveryAddress;
 
-    @Column(name = "password")
+    @Column(name = "password",nullable = false)
     private String password;
 
     public Client() {

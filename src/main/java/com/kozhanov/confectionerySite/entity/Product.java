@@ -28,16 +28,28 @@ public class Product {
     @Column(name = "image_url")
     private String imageURL;
 
+    @Column(name = "is_stock")
+    private boolean isStock;
+
     public Product() {
     }
 
-    public Product(Integer id, String name, Category category, String description, BigDecimal price, String imageURL) {
+    public Product(Integer id, String name, Category category, String description, BigDecimal price, String imageURL, boolean isStock) {
         this.id = id;
         this.name = name;
         this.category = category;
         this.description = description;
         this.price = price;
         this.imageURL = imageURL;
+        this.isStock = isStock;
+    }
+
+    public boolean isStock() {
+        return isStock;
+    }
+
+    public void setStock(boolean stock) {
+        isStock = stock;
     }
 
     public Integer getId() {

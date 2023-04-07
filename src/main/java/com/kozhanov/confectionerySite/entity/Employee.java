@@ -14,16 +14,16 @@ public class Employee {
     @Column(name = "full_name", nullable = false)
     private String fullName;
 
-    @Column(name = "position")
+    @Column(name = "position", nullable = false)
     private String position;
 
-    @Column(name = "phone")
+    @Column(name = "phone", nullable = false)
     private String phone;
 
     @Column(name = "email")
     private String email;
 
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
 
     @Column(name = "access_level")
