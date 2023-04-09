@@ -271,7 +271,269 @@ header{
 
 <!-- ------------------------------------------- -->
 
+.second--block{
+    position: relative;
+    top: 117px;
+}
 
+.second--block h1{
+    position: relative;
+    top: 141px;
+    left: 571px;
+    width: 460px;
+    letter-spacing: 5.6px;
+    line-height: 27px;
+}
+
+.now--popular--second--block{
+    position: relative;
+    top: 5px;
+    left: 48px;
+    width: 1700px;
+    display: flex;
+}
+.container--item--confectionery{
+    position: relative;
+    left: 213px;
+    top: 214px;
+    width: 421px;
+    height: 660px;
+    margin-right: 33px;
+    display: block;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.image--item{
+    position: absolute;
+    top: 25px;
+    left: 65px;
+}
+
+.name--item{
+    position: absolute;
+    top: 280px;
+    left: 37px;
+}
+
+.name--item h3{
+
+}
+
+.description--item{
+    position: absolute;
+    top: 370px;
+    left: 37px;
+}
+.price--item{
+    position: absolute;
+    top: 560px;
+    left: 37px;
+}
+
+.button--add--to--basket{
+    position: absolute;
+    top: 570px;
+    left: 137px;
+}
+.button--add--to--basket button{
+    width: 222px;
+    height: 61px;
+    background-color: #C08D5D;
+    border-radius: 10px;
+    position: absolute;
+    top: 14px;
+    left: 41px;
+    border: none;
+}
+
+.button--add--to--basket button span{
+    position: relative;
+    top: -25px;
+    left: 0px;
+    color: #FFFCF5;
+}
+<!-- ---------------------------- -->
+
+.three--block{
+    position: relative;
+    top: 20px;
+    left: 10px;
+}
+
+.three--block h1{
+    position: relative;
+    top: 120px;
+    left: 115px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 94px;
+    word-spacing: 0px;
+}
+.three--block p{
+    position: relative;
+    top: 105px;
+    left: 140px;
+    font-size: 32px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 42px;
+    word-spacing: 0px;
+}
+
+<!-- ---------------------------- -->
+
+
+.four--block{
+    position: relative;
+    background-image: url("../img/backgroundImage.png");
+    width: 1920px;
+    height: 900px;
+}
+.container--four--block{
+    position: relative;
+    top: 420px;
+    left: 0px;
+    background-image: url(../img/backgroundImage.png);
+    width: 1903px;
+    height: 900px;
+}
+.form--call--four--block{
+    position: absolute;
+    top: 70px;
+    left: 109px;
+    height: 760px;
+    width: 1650px;
+    background-color: white;
+    border-radius: 10px;
+}
+.form--call--four--block h1{
+    position: absolute;
+    top: 33px;
+    left: 483px;
+    word-spacing: 0px;
+    letter-spacing: 6px;
+}
+
+.form--call--four--block form{
+    position: relative;
+    top: 241px;
+    left: 52px;
+    width: 1700px;
+    display: flex;
+}
+
+.name--forms{
+    display: flex;
+    position: relative;
+    top: 281px;
+    left: 36px;
+}
+
+.name--forms span{
+
+    font-size: 32px;
+    width: 276px;
+    margin-right: 164px;
+    font-family: 'PLAYFAIRDISPLAYREGULAR';
+}
+
+.after--call--calling{
+    position: relative;
+    top: 181px;
+    left: 325px;
+    width: 900px;
+    font-size: 32px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.after--form--calling{
+    position: relative;
+    top: 321px;
+    left: 131px;
+    width: 1267px;
+    font-size: 24px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+.form--call--four--block input{
+    padding-left: 20px;
+    position: relative;
+    top: 60px;
+    left: -14px;
+    margin-right: 84px;
+    background-color: white;
+    border: 2px solid black;
+    width: 324px;
+    height: 75px;
+    border-radius: 20px;
+}
+.form--call--four--block input[placeholder]{
+    font-family: PlayfairDisplay;
+    font-size: 24px;
+    color: #504747;
+}
+.form--call--four--block input[type=submit]{
+    position: relative;
+    top: 60px;
+    left: -10px;
+    margin-right: 86px;
+    background-color: #C08D5D;
+    color: white;
+    border: none;
+    font-size: 32px;
+    width: 255px;
+    height: 74px;
+    border-radius: 20px;
+}
+
+
+.five--block{
+    position: relative;
+    top: 350px;
+    left: 100px;
+}
+
+.container--five--block{
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+.container--five--block h1{
+    position: relative;
+    top: 179px;
+    left: 383px;
+}
+.container--five--block h2{
+    position: relative;
+    top: 172px;
+    left: 145px;
+    text-align: center;
+    width: 1417px;
+}
+.container--five--block button{
+    position: relative;
+    top: 181px;
+    left: 378px;
+    margin-right: 86px;
+    background-color: #C08D5D;
+    color: white;
+    border: none;
+    width: 920px;
+    height: 138px;
+    border-radius: 15px;
+    font-size: 50px;
+    font-family: 'PlayfairDisplayRegular';
+}
+
+
+
+
+
+
+
+<!-- ---------------------------- -->
 footer{
     position: relative;
     height: 300px;

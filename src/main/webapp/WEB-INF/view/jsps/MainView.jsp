@@ -68,41 +68,290 @@
 
         </div>
 
+        <!-- ---------------------------- -->
+
         <div class="second--block">
 
-            <h1>Сейчас популярно</h1>
+            <h1>Сейчас&nbspпопулярно</h1>
 
             <div class="now--popular--second--block">
 
                 <div class="container--item--confectionery">
 
-                    <div class="image--item">
-                        <img src="">
+                    <div class="image--item" >
+                        <img src="${pageContext.request.contextPath}/img/ovsCookie.png" height="255px" width="290px">
                     </div>
 
                     <div class="name--item">
-                        Овсяные печенья
+                        <h3>   Овсяные печенья</h3>
                     </div>
 
                     <div class="description--item">
 
-                        Крутые классные бомбезные офигенные прикольные вкусные и ...
+                        <p>  Крутые классные бомбезные офигенные прикольные вкусные и ...</p>
 
                     </div>
 
-                    <div class=""
+                    <div class="price--item">
+                      <h3>  250₽</h3>
+                    </div>
+
+                    <div class="button--add--to--basket">
+
+                        <button>
+                            <span> <h3> В корзину</h3></span>
+                        </button>
+
+                    </div>
 
                 </div>
 
+                <div class="container--item--confectionery">
+
+                    <div class="image--item">
+                        <img src="${pageContext.request.contextPath}/img/ovsCookie.png" height="255px" width="290px">
+                    </div>
+
+                    <div class="name--item">
+                     <h3>  Овсяные печенья</h3>
+                    </div>
+
+                    <div class="description--item">
+
+                        <p>  Крутые классные бомбезные офигенные прикольные вкусные и ...</p>
+
+                    </div>
+
+                    <div class="price--item">
+                        <h3>  250₽</h3>
+                    </div>
+
+                    <div class="button--add--to--basket">
+
+                        <button>
+                            <span> <h3> В корзину</h3></span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="container--item--confectionery">
+
+                    <div class="image--item">
+                        <img src="${pageContext.request.contextPath}/img/ovsCookie.png" height="255px" width="290px">
+                    </div>
+
+                    <div class="name--item">
+                        <h3>    Овсяные печенья</h3>
+                    </div>
+
+                    <div class="description--item">
+
+                       <p> Крутые классные бомбезные офигенные прикольные вкусные и ...</p>
+
+                    </div>
+
+                    <div class="price--item">
+                        <h3>  250₽</h3>
+                    </div>
+
+                    <div class="button--add--to--basket">
+
+                        <button>
+                            <span> <h3> В корзину</h3></span>
+                        </button>
+
+                    </div>
+
+                </div>
 
             </div>
 
 
         </div>
 
+        <!-- ---------------------------- -->
 
+        <div class="three--block" style="position: relative;
+left: 120px;
+top: 140px; width:1350px; height:500px">
+
+            <h1>Накрываем праздничные столы на Gender Party и детские праздники</h1>
+            <p>
+                Рождение ребёнка - важнейшее событие в жизни любого человека. Мы предлагаем
+                узнать пол нового члена семьи необычным способом. В кульминации мероприятия вам
+                подадут торт с розовой или голубой начинкой в зависимости от того, будет у вас
+                мальчик или же девочка. Вам останется только разрезать угощение и все карты станут
+                раскрыты! Подробности уточняйте по телефону
+            </p>
+
+        </div>
+
+        <!-- ---------------------------- -->
+
+        <div class="second--block" style="
+    position: relative;
+    top: 117px;">
+
+            <h1>Акции&nbspи&nbspскидки</h1>
+
+            <div class="now--popular--second--block">
+
+                <div class="container--item--confectionery">
+
+                    <div class="image--item" >
+                        <img src="${pageContext.request.contextPath}/img/ovsCookie.png" height="255px" width="290px">
+                    </div>
+
+                    <div class="name--item">
+                        <h3>   Овсяные печенья</h3>
+                    </div>
+
+                    <div class="description--item">
+
+                        <p>  Крутые классные бомбезные офигенные прикольные вкусные и ...</p>
+
+                    </div>
+
+                    <div class="price--item">
+                        <h3>  250₽</h3>
+                    </div>
+
+                    <div class="button--add--to--basket">
+
+                        <button>
+                            <span> <h3> В корзину</h3></span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="container--item--confectionery">
+
+                    <div class="image--item">
+                        <img src="${pageContext.request.contextPath}/img/ovsCookie.png" height="255px" width="290px">
+                    </div>
+
+                    <div class="name--item">
+                        <h3>  Овсяные печенья</h3>
+                    </div>
+
+                    <div class="description--item">
+
+                        <p>  Крутые классные бомбезные офигенные прикольные вкусные и ...</p>
+
+                    </div>
+
+                    <div class="price--item">
+                        <h3>  250₽</h3>
+                    </div>
+
+                    <div class="button--add--to--basket">
+
+                        <button>
+                            <span> <h3> В корзину</h3></span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="container--item--confectionery">
+
+                    <div class="image--item">
+                        <img src="${pageContext.request.contextPath}/img/ovsCookie.png" height="255px" width="290px">
+                    </div>
+
+                    <div class="name--item">
+                        <h3>    Овсяные печенья</h3>
+                    </div>
+
+                    <div class="description--item">
+
+                        <p> Крутые классные бомбезные офигенные прикольные вкусные и ...</p>
+
+                    </div>
+
+                    <div class="price--item">
+                        <h3>  250₽</h3>
+                    </div>
+
+                    <div class="button--add--to--basket">
+
+                        <button>
+                            <span> <h3> В корзину</h3></span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <!-- ---------------------------- -->
+
+        <div class="four--block">
+
+            <div class="container--four--block">
+
+                <div class="form--call--four--block">
+
+                    <h1>Заказать звонок</h1>
+                    <p class="after--call--calling">Заполните форму, мы перезвоним вам в ближайшее время
+                        и ответим на все вопросы!</p>
+                    <div class="name--forms">
+                        <span>Ваше&nbspимя</span><span>Ваш&nbspтелефон</span><span>Ваша&nbspпочта</span>
+                    </div>
+                    <form>
+                        <input placeholder="Иван Иванов" type="text">
+
+                        <input placeholder="+7 (999) 999-99-99" type="tel">
+
+                        <input placeholder="Email" type="email">
+                        <input  type="submit" value="Отправить">
+
+                    </form>
+                        <p class="after--form--calling">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой
+                            конфиденциальности</p>
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+        <!-- ---------------------------- -->
+        <div class="five--block">
+            <div class="container--five--block">
+
+                <h1>Оплачивайте покупки онлайн</h1>
+                <h2>Дбавьте все интерисующие тавары в корзину и оплатите без каких-либо проблем</h2>
+                <button>Перейти в каталог</button>
+
+
+
+            </div>
+
+
+
+
+        </div>
+
+
+
+        <!-- ---------------------------- -->
 
     </div>
+
+
 
 
 
