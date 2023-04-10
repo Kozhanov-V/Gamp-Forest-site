@@ -1,0 +1,104 @@
+.container--footer{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    height: 0px;
+    display: flex;
+    width: 1901px;
+}
+
+.footer{
+    position: relative;
+    top: 676px;
+    left: 0px;
+    height: 651px;
+    width: 1889px;
+    display: flex;
+    background-color: #C08D5D;
+    color: white;
+}
+.first--block--footer{
+    position: relative;
+    display: block;
+    top: 74px;
+    left: 91px;
+}
+
+.name--confectionery--footer{
+    position: relative;
+    top: 11px;
+    left: 14px;
+    letter-spacing: 4px;
+}
+
+.name--confectionery--footer h1{
+    position: relative;
+    top: -20px;
+}
+
+.place-online-footer{
+    position: relative;
+    top: -48px;
+    left: 10px;
+    width: 335px;
+    background-color: #7C5F3D;
+    height: 85px;
+    padding-left: 5px;
+}
+.confectionery--hands--job--footer{
+    position: relative;
+    top: -71px;
+    left: 11px;
+    letter-spacing: 3px;
+    width: 335px;
+}
+.social--footer{
+    position: relative;
+    top: -84px;
+    left: 10px;
+}
+
+.social--footer a{
+    margin-right: 35px;
+}
+.second--block--footer{
+    position: relative;
+    display: block;
+    top: 180px;
+    left: 232px;
+}
+
+.three--block--footer{
+    position: relative;
+    top: 180px;
+    left: 433px;
+}
+.three--block--footer button{
+    position: relative;
+    top: 0px;
+    left: -4px;
+    background-color: black;
+    color: #989898;
+    border: none;
+    width: 375px;
+    height: 100px;
+    border-radius: 15px;
+    font-size: 32px;
+    font-family: 'PlayfairDisplayRegular';
+}
+.made--on--kozhanovjr{
+    position: absolute;
+    width: 1889px;
+    background: black;
+    height: 150px;
+    padding-top: 1px;
+    top: 1327px;
+}
+.made--on--kozhanovjr h2{
+    color: #989898;
+    margin-left: 500px;
+}
+
+.made--on--kozhanovjr a{
+    color: #989898;
+}

@@ -13,9 +13,18 @@ html{
     font-family: PlayfairDisplayRegular;
     background: #FFFCF5;
 }
+
+
+
+
 .body{
     justify-content: center;
 }
+a{
+    text-decoration: none;
+    color: white;
+}
+
 
 h1{
     font-size: 70px;
@@ -34,123 +43,11 @@ p{
     font-size: 18px;
 }
 
-.header{
-    position: absolute;
-    margin-top: 92px;
-    margin-bottom: 20px;
-    left: 55px;
-    right: 50px;
-    width: 1800px;
-    height: 195px;
-    display: flex;
-}
-header{
-    position: relative;
-    width: 1903px;
-    height: 195px;
-    background-color: #FFFAF3;
+button:hover{
+    border: 2px solid #C08D5D;
+    cursor: pointer;
 }
 
-.main--header{
-    color: #C08D5D;
-}
-
-.left--menu--header{
-    position: relative;
-    margin-top: -40px;
-    left: 230px;
-    width: 600px;
-    height: 195px;
-    display: flex;
-    justify-content: center;
-}
-
-.left--menu--header h3{
-    margin-right: 105px;
-    letter-spacing: 2px;
-}
-
-.header--logo{
-    position: relative;
-    margin-top: -20px;
-    left: 315px;
-    width: 52px;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-}
-
-.right--menu--header{
-    position: relative;
-    margin-top: 0px;
-    left: 370px;
-    width: 600px;
-    height: 195px;
-    display: flex;
-    justify-content: center;
-}
-
-.right--menu--header h3{
-    margin-right: 96px;
-    letter-spacing: 2px;
-}
-
-
-
-.stock--help--header{
-    position: relative;
-    margin-top: -40px;
-    margin-bottom: 20px;
-    left: 133px;
-    right: 50px;
-    width: 600px;
-    height: 195px;
-    display: flex;
-    justify-content: center;
-}
-.login--signup--header{
-    position: relative;
-    margin-top: -45px;
-    margin-bottom: 20px;
-    left: 40px;
-    right: 50px;
-    width: 600px;
-    height: 195px;
-    display: flex;
-    justify-content: center;
-}
-
-.login--signup--header span{
-    font-family: PlayfairDisplay;
-    font-size: 32px;
-}
-
-.login--header {
-    position: relative;
-    height: 37px;
-    left: 46px;
-    top: 35px;
-    border: none;
-    outline: none;
-    background-color: #FFFAF3;
-}
-.signup--header{
-    position: relative;
-    top: 32px;
-    left: 58px;
-    border:none;
-    outline: none;
-    width: 145px;
-    height: 53px;
-    background-color: #C08D5D;
-    border-radius: 15px;
-}
-.signup--header span{
-    color: #FFFAF3;
-}
-
-
-<!-- ------------------------------------------- -->
 .main{
   width: 1903px;
 }
@@ -475,6 +372,7 @@ header{
     color: #504747;
 }
 .form--call--four--block input[type=submit]{
+    cursor: pointer;
     position: relative;
     top: 60px;
     left: -10px;
@@ -493,6 +391,7 @@ header{
     position: relative;
     top: 350px;
     left: 100px;
+    width: 1200px;
 }
 
 .container--five--block{
@@ -528,15 +427,3 @@ header{
 }
 
 
-
-
-
-
-
-<!-- ---------------------------- -->
-footer{
-    position: relative;
-    height: 300px;
-    width: 300px;
-    background-color: green;
-}

@@ -5,7 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Главная</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
+
 </head>
 <body>
 <div class="body">
@@ -332,7 +335,7 @@ top: 140px; width:1350px; height:500px">
         <div class="five--block">
             <div class="container--five--block">
 
-                <h1>Оплачивай покупки онлайн</h1>
+                <h1>Оплачивайте покупки онлайн</h1>
                 <h2>Дбавьте все интерисующие тавары в корзину и оплатите без каких-либо проблем</h2>
                 <button>Перейти в каталог</button>
 
@@ -355,7 +358,7 @@ top: 140px; width:1350px; height:500px">
 
 
 
-  <!--  <jsp:include page="/WEB-INF/view/jsps/footer.jsp"/>-->
+    <jsp:include page="/WEB-INF/view/jsps/footer.jsp"/>
 </div>
 </body>
 </html>
