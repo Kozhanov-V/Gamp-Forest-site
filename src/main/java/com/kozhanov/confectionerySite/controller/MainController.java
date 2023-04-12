@@ -11,4 +11,9 @@ public class MainController {
 
         return "MainView";
     }
+    @RequestMapping("/catalog")
+    public String showCatalogPage(){
+
+        return "CatalogView";
+    }
 }

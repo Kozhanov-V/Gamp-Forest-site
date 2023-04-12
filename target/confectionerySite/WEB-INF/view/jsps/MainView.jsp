@@ -46,15 +46,18 @@
                 </div>
 
                 <div class="catalog--button--first--block">
+                    <form action="/catalog" method="get">
+                        <button class="catalog--button">
 
-                    <button class="catalog--button">
+                            <span>Каталог</span>
 
-                        <span>Каталог</span>
+                            <div class="arrow--in--button">
+                                <img src="${pageContext.request.contextPath}/img/arrowInButton.png">
+                            </div>
 
-                        <div class="arrow--in--button">
-                            <img src="${pageContext.request.contextPath}/img/arrowInButton.png">
-                        </div>
-                    </button>
+                        </button>
+                    </form>
+
 
                 </div>
 
@@ -337,7 +340,11 @@ top: 140px; width:1350px; height:500px">
 
                 <h1>Оплачивайте покупки онлайн</h1>
                 <h2>Дбавьте все интерисующие тавары в корзину и оплатите без каких-либо проблем</h2>
-                <button>Перейти в каталог</button>
+
+                <form action="/catalog" method="get">
+                    <button>Перейти в каталог</button>
+                </form>
+
 
 
 
