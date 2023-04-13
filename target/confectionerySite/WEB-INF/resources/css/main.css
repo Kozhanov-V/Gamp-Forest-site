@@ -1,4 +1,4 @@
-@font-face {
+font-face {
     font-family: PlayfairDisplay; /* Имя шрифта */
     src: url(../fonts/PlayfairDisplay.ttf); /* Путь к файлу со шрифтом */
 }
@@ -13,7 +13,10 @@ html{
     font-family: PlayfairDisplayRegular;
     background: #FFFCF5;
 }
-
+button:hover{
+    border: 2px solid #C08D5D;
+    cursor: pointer;
+}
 
 
 
@@ -42,7 +45,11 @@ h3{
 p{
     font-size: 18px;
 }
-
+.body{
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
 button:hover{
     border: 2px solid #C08D5D;
     cursor: pointer;
@@ -392,6 +399,7 @@ button:hover{
     top: 350px;
     left: 100px;
     width: 1200px;
+    margin-bottom: 600px;
 }
 
 .container--five--block{

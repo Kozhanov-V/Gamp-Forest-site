@@ -16,4 +16,9 @@ public class MainController {
 
         return "CatalogView";
     }
+    @RequestMapping("/contacts")
+    public String showContactsPage(){
+
+        return "ContactsView";
+    }
 }

@@ -1,0 +1,194 @@
+font-face {
+    font-family: PlayfairDisplay; /* Имя шрифта */
+    src: url(../fonts/PlayfairDisplay.ttf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+    font-family: PlayfairDisplayRegular; /* Имя шрифта */
+    src: url(../fonts/Playfair_Display_Regular.ttf); /* Путь к файлу со шрифтом */
+}
+html{
+    position: relative;
+    left: -8px;
+    top: -4px;
+    font-family: PlayfairDisplayRegular;
+    background: #FFFCF5;
+}
+button:hover{
+    border: 2px solid #C08D5D;
+    cursor: pointer;
+}
+
+
+
+.body{
+    justify-content: center;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+
+
+h1{
+    font-size: 70px;
+}
+
+h2{
+    font-size: 50px;
+}
+
+h3{
+    font-family: PlayfairDisplayRegular;
+    font-size: 32px;
+}
+
+p{
+    font-size: 18px;
+}
+.body{
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+button:hover{
+    border: 2px solid #C08D5D;
+    cursor: pointer;
+}
+.body{
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+.filter--elements{
+    position: absolute;
+    left: 63px;
+    top: 520px;
+    display: block;
+}
+.filter--elements span{
+    position: relative;
+    top: 0px;
+    left: 10px;
+    font-size: 32px;
+}
+.filter--elements form{
+    position: relative;
+    display: block;
+}
+.catalog--elements{
+
+    left: 0px;
+    position: relative;
+    display: block;
+    width: 200px;
+    top: 36px;
+}
+.element--catalog--elements{
+    position: relative;
+    margin-top: 10px;
+    left: 10px;
+    font-size: 21px;
+}
+.main--block{
+    position: relative;
+    left: 100px;
+    top: 100px;
+    width: 1500px;
+}
+.container--main--block{
+    position: relative;
+    left: 0px;
+    top: 0px;
+    display: block;
+    width: 1350px;
+}
+.tag--name--container{
+    position: relative;
+    left: 213px;
+    top: -100px;
+    display: block;
+}
+.container--main--block h1{
+    position: relative;
+    top: 22px;
+    left: 50px;
+    font-size: 70px;
+}
+.container--main--block h2{
+    position: relative;
+    top: 13px;
+    left: 154px;
+    font-size: 50px;
+    font-style: normal;
+}
+
+.container--for--products{
+    position: relative;
+    top: -267px;
+    left: 57px;
+    width: 1700px;
+    margin-bottom: 50px;
+    display: flex;
+}
+.container--item--confectionery{
+    position: relative;
+    left: 213px;
+    top: 214px;
+    width: 421px;
+    height: 660px;
+    margin-right: 33px;
+    display: block;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.image--item{
+    position: absolute;
+    top: 25px;
+    left: 65px;
+}
+
+.name--item{
+    position: absolute;
+    top: 280px;
+    left: 37px;
+}
+
+.name--item h3{
+
+}
+
+.description--item{
+    position: absolute;
+    top: 370px;
+    left: 37px;
+}
+.price--item{
+    position: absolute;
+    top: 560px;
+    left: 37px;
+}
+
+.button--add--to--basket{
+    position: absolute;
+    top: 570px;
+    left: 137px;
+}
+.button--add--to--basket button{
+    width: 222px;
+    height: 61px;
+    background-color: #C08D5D;
+    border-radius: 10px;
+    position: absolute;
+    top: 14px;
+    left: 41px;
+    border: none;
+}
+
+.button--add--to--basket button span{
+    position: relative;
+    top: -25px;
+    left: 0px;
+    color: #FFFCF5;
+}
+

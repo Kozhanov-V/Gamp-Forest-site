@@ -3,15 +3,15 @@
     top: 0px;
     left: 0px;
     height: 0px;
-    display: flex;
+    display: block;
     width: 1901px;
 }
 
 .footer{
     position: relative;
-    top: 676px;
+    top: 50px;
     left: 0px;
-    height: 651px;
+    height: 700px;
     width: 1889px;
     display: flex;
     background-color: #C08D5D;
@@ -66,12 +66,14 @@
     display: block;
     top: 180px;
     left: 232px;
+    height: 100px;
 }
 
 .three--block--footer{
     position: relative;
     top: 180px;
     left: 433px;
+    height: 100px;
 }
 .three--block--footer button{
     position: relative;
@@ -92,7 +94,6 @@
     background: black;
     height: 150px;
     padding-top: 1px;
-    top: 1327px;
 }
 .made--on--kozhanovjr h2{
     color: #989898;

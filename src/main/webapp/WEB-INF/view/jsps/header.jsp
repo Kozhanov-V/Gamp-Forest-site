@@ -8,11 +8,11 @@
 
        <div class="left--menu--header">
 
-           <h3> <span class="main--header">Главная</span></h3>
+           <h3><a href="/"> <span class="main--header">Главная</span></a></h3>
 
            <h3><a href="/catalog">Каталог</a></h3>
 
-           <h3>Контакты</h3>
+           <h3><a href="/contacts">Контакты</a></h3>
 
        </div>
 
