@@ -58,6 +58,7 @@ button:hover{
     position: relative;
     left: 241px;
     top: 0px;
+    width: 1500px;
 }
 .main--block span{
     font-weight: normal;

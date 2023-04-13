@@ -21,4 +21,9 @@ public class MainController {
 
         return "ContactsView";
     }
+    @RequestMapping("/product")
+    public String showProductInfoPage(){
+
+        return "ProductInfo";
+    }
 }

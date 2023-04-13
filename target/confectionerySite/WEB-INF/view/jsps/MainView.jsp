@@ -131,13 +131,21 @@
                     <div class="price--item">
                         <h3>  250₽</h3>
                     </div>
+                    <div class="buttons--block">
+                        <div class="button--about--product">
 
-                    <div class="button--add--to--basket">
+                            <button>
+                                <span> <h3> Подробнее</h3></span>
+                            </button>
 
-                        <button>
-                            <span> <h3> В корзину</h3></span>
-                        </button>
+                        </div>
 
+                        <div class="button--add--to--basket">
+
+                            <button>
+                                <span> <h3> В корзину</h3></span>
+                            </button>
+                         </div>
                     </div>
 
                 </div>
