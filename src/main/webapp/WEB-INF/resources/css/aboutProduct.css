@@ -73,7 +73,9 @@ button:hover{
     left: 115px;
 }
 
-
+.main--block--info h2{
+    font-size: 32px;
+}
 
 .main--block--info{
     position: relative;
@@ -83,7 +85,7 @@ button:hover{
     left: 244px;
 }
 .main--block--info > *{
-    margin-top: 10px;
+    margin-top: 33px;
 }
 .main--block--info button{
     width: 222px;
@@ -92,6 +94,7 @@ button:hover{
     border-radius: 10px;
     border: none;
     color: white;
+    margin-top: -11px;
     font-size: 32px;
 }
 .main--block--info p{
@@ -99,8 +102,16 @@ button:hover{
 }
 
 
+.see--also--block{
+    position: relative;
+    top: 50px;
+}
 
 
+.see--also--block h1{
+    margin-top: 100px;
+    font-size: 50px;
+}
 
 
 
@@ -118,9 +129,9 @@ button:hover{
 
 .container--for--products{
     position: relative;
-    top: -267px;
-    left: 57px;
-    width: 1700px;
+    top: -208px;
+    left: -131px;
+    width: 1850px;
     margin-bottom: 50px;
     display: flex;
 }
@@ -130,7 +141,7 @@ button:hover{
     top: 214px;
     width: 421px;
     height: 660px;
-    margin-right: 33px;
+    margin-right: 37px;
     display: block;
     border: 2px solid black;
     border-radius: 20px;

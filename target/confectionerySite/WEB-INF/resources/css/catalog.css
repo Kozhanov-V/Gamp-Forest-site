@@ -18,7 +18,9 @@ button:hover{
     cursor: pointer;
 }
 
-
+button{
+    cursor: pointer;
+}
 
 .body{
     justify-content: center;
@@ -75,6 +77,25 @@ button:hover{
     position: relative;
     display: block;
 }
+
+input[type=submit]{
+    width: 200px;
+    height: 50px;
+    background-color: #C08D5D;
+    border-radius: 10px;
+    position: absolute;
+    border: none;
+    margin-top: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    top: 252px;
+    color: white;
+    left: -20px;
+}
+
+input[type=submit]:hover{
+    cursor: pointer;
+}
 .catalog--elements{
 
     left: 0px;
@@ -91,20 +112,20 @@ button:hover{
 }
 .main--block{
     position: relative;
-    left: 100px;
+    left: 336px;
     top: 100px;
     width: 1500px;
 }
 .container--main--block{
     position: relative;
-    left: 0px;
+    left: 0;
     top: 0px;
     display: block;
-    width: 1350px;
+    width: 1107px;
 }
 .tag--name--container{
     position: relative;
-    left: 213px;
+    left: 0;
     top: -100px;
     display: block;
 }
@@ -124,16 +145,16 @@ button:hover{
 
 .container--for--products{
     position: relative;
-    top: -267px;
-    left: 57px;
-    width: 1700px;
+    top: -30px;
+    left: 49px;
+    width: 1500px;
     margin-bottom: 50px;
     display: flex;
 }
 .container--item--confectionery{
     position: relative;
-    left: 213px;
-    top: 214px;
+    left: 0;
+    top: 0px;
     width: 421px;
     height: 660px;
     margin-right: 33px;
@@ -167,29 +188,53 @@ button:hover{
 .price--item{
     position: absolute;
     top: 560px;
-    left: 37px;
+    left: 315px;
 }
 
 .button--add--to--basket{
     position: absolute;
-    top: 570px;
-    left: 137px;
+    top: 50px;
 }
 .button--add--to--basket button{
-    width: 222px;
-    height: 61px;
+    width: 200px;
+    height: 50px;
     background-color: #C08D5D;
     border-radius: 10px;
     position: absolute;
     top: 14px;
     left: 41px;
     border: none;
+    margin-top: 10px;
+    font-size: 20px;
 }
 
 .button--add--to--basket button span{
     position: relative;
-    top: -25px;
-    left: 0px;
+    top: -30px;
     color: #FFFCF5;
+    margin-top: -38px;
 }
 
+.buttons--item{
+    display: block;
+}
+.about--product{
+}
+.about--product button{
+    width: 200px;
+    height: 50px;
+    background: none;
+    border-radius: 10px;
+    position: absolute;
+    top: 14px;
+    left: 41px;
+    color: black;
+    border: 2px solid black;
+    cursor: pointer;
+    font-size: 20px;
+}
+.buttons--item{
+    position: absolute;
+    top: 508px;
+    left: 0px;
+}
