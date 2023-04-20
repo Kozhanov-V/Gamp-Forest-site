@@ -29,12 +29,12 @@ public class Product {
     private String imageURL;
 
     @Column(name = "is_stock")
-    private boolean isStock;
+    private byte isStock;
 
     public Product() {
     }
 
-    public Product(Integer id, String name, Category category, String description, BigDecimal price, String imageURL, boolean isStock) {
+    public Product(Integer id, String name, Category category, String description, BigDecimal price, String imageURL, byte isStock) {
         this.id = id;
         this.name = name;
         this.category = category;
@@ -44,12 +44,12 @@ public class Product {
         this.isStock = isStock;
     }
 
-    public boolean isStock() {
+    public byte getIsStock() {
         return isStock;
     }
 
-    public void setStock(boolean stock) {
-        isStock = stock;
+    public void setIsStock(byte isStock) {
+        this.isStock = isStock;
     }
 
     public Integer getId() {
@@ -100,6 +100,17 @@ public class Product {
         this.imageURL = imageURL;
     }
 
-    // Конструкторы, геттеры и сеттеры
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", category=" + category +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", imageURL='" + imageURL + '\'' +
+                ", isStock=" + isStock +
+                '}';
+    }
 }
 

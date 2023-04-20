@@ -164,6 +164,11 @@ input[type=submit]:hover{
     color: black;
 }
 
+.container--item--confectionery p {
+    max-width: 30ch;
+}
+
+
 .image--item{
     position: absolute;
     top: 25px;

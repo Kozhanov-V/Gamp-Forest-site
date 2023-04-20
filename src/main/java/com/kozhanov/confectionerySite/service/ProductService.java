@@ -1,0 +1,10 @@
+package com.kozhanov.confectionerySite.service;
+
+import com.kozhanov.confectionerySite.entity.Product;
+
+import java.util.List;
+
+public interface ProductService {
+    public List<Product> getAllProducts();
+    public List<Product> filterProductsByParameters(String price, boolean chizkeik, boolean naborChizkeik);
+}
