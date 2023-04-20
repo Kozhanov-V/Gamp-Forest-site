@@ -28,8 +28,9 @@ public class MainController {
         return "ContactsView";
     }
     @RequestMapping("/product")
-    public String showProductInfoPage(){
-
+    public String showProductInfoPage(@RequestParam(name = "productId") int id,Model model){
+        Product product = productService.getByIdProduct(id);
+        model.addAttribute("product",product);
         return "ProductInfo";
     }
 
@@ -42,11 +43,10 @@ public class MainController {
     ) {
         // Фильтрация продуктов на основе параметров
         List<Product> filteredProducts = productService.filterProductsByParameters(price, chizkeik, naborChizkeik);
-
         model.addAttribute("products", filteredProducts);
-        model.addAttribute("price", price);
         model.addAttribute("currentChizkeik", chizkeik);
         model.addAttribute("currentNaborChizkeik", naborChizkeik);
+        model.addAttribute("price",price.replaceAll("[^\\d.^-]", ""));
         // Возвращаем страницу со списком продуктов после применения фильтров
         return "CatalogView";
     }

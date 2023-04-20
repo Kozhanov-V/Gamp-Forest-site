@@ -21,17 +21,16 @@
                 </a>
             </div>
             <div class="main--image">
-                <img src="${pageContext.request.contextPath}/img/pngwing11.png"width="800" height="670"/>
+                <img src="${product.imageURL}"width="800" height="670"/>
             </div>
         </div>
         <div class="main--block--info">
 
-            <h2>Шоколадный торт</h2>
+            <h2>${product.name}</h2>
 
-            <p>Добро о гостя
-                нашей кондитерской..</p>
+            <p>${product.description}</p>
 
-            <h2>220 ₽</h2>
+            <h2>${product.price}</h2>
 
             <button>В корзину</button>
 

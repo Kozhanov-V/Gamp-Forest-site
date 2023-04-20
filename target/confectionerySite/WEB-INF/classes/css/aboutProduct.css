@@ -79,7 +79,7 @@ button:hover{
 
 .main--block--info{
     position: relative;
-    width: 350px;
+    width: 550px;
     display: block;
     top: 187px;
     left: 244px;
@@ -104,13 +104,14 @@ button:hover{
 
 .see--also--block{
     position: relative;
-    top: 50px;
+    top: 150px;
 }
 
 
 .see--also--block h1{
     margin-top: 100px;
     font-size: 50px;
+    margin-left: 50px;
 }
 
 
@@ -129,16 +130,16 @@ button:hover{
 
 .container--for--products{
     position: relative;
-    top: -208px;
+    top: 0px;
     left: -131px;
     width: 1850px;
-    margin-bottom: 50px;
+    margin-bottom: 150px;
     display: flex;
 }
 .container--item--confectionery{
     position: relative;
     left: 213px;
-    top: 214px;
+    top: 0px;
     width: 421px;
     height: 660px;
     margin-right: 37px;

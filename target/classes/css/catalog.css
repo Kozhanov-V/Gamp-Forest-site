@@ -187,7 +187,7 @@ input[type=submit]:hover{
 
 .description--item{
     position: absolute;
-    top: 370px;
+    top: 400px;
     left: 37px;
 }
 .price--item{
@@ -223,9 +223,8 @@ input[type=submit]:hover{
 .buttons--item{
     display: block;
 }
-.about--product{
-}
-.about--product button{
+
+input[type=button]{
     width: 200px;
     height: 50px;
     background: none;

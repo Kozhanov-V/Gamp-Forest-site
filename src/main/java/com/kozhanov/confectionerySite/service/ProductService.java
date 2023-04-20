@@ -7,4 +7,5 @@ import java.util.List;
 public interface ProductService {
     public List<Product> getAllProducts();
     public List<Product> filterProductsByParameters(String price, boolean chizkeik, boolean naborChizkeik);
+    public Product getByIdProduct(int id);
 }

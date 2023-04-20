@@ -20,12 +20,13 @@
 <body>
     <div class="body">
         <jsp:include page="/WEB-INF/view/jsps/header.jsp"/>
-
+        <input type="hidden" id="price" data-price="${price}">
         <div class="filter--elements">
             <form id="filter-form"  action="/catalog" method="POST">
             <p>
                     <span><label for="amount">Цена: </label></span>
-                <input type="text" id="amount" name="price" readonly style="border:0;color: black;background: none;font-size: 24px;margin-top: 15px;margin-left: 15px;" data-price="${price}">
+                <input type="text" id="amount" name="price" readonly style="border:0;color: black;background: none;font-size: 24px;margin-top: 15px;margin-left: 15px;">
+
 
             </p>
 
@@ -82,9 +83,10 @@
                             <div class="buttons--item">
 
                                 <form action="/product" method="get" class="about--product">
-                                    <button class="catalog--button">
-                                    Подробнее
-                                    </button>
+                                    <c:url var="urlAbout" value="/product">
+                                        <c:param name="productId" value="${product.id}"/>
+                                    </c:url>
+                                    <input type="button" value="Подробнее" class="catalog--button" onclick="window.location.href='${urlAbout}'"/>
                                 </form>
                                 <form action="/addToBasket" class="button--add--to--basket">
 
