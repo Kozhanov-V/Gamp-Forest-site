@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,127 +45,44 @@
 
         <h1>Смотрите также</h1>
         <div class="container--for--products">
-
+            <c:forEach var="productItem" items="${lastSells}">
             <div class="container--item--confectionery">
 
                 <div class="image--item" >
-                    <img src="${pageContext.request.contextPath}/img/ovsCookie.png" height="255px" width="290px">
+                    <img src="${productItem.imageURL}" height="255px" width="290px">
                 </div>
 
                 <div class="name--item">
-                    <h3>   Овсяные печенья</h3>
+                    <h3>   ${productItem.name}</h3>
                 </div>
 
                 <div class="description--item">
 
-                    <p>  Крутые классные бомбезные офигенные прикольные вкусные и ...</p>
+                    <p>  ${fn:substring(productItem.description,0 , 90)}</p>
 
                 </div>
 
                 <div class="price--item">
-                    <h3>  250₽</h3>
+                    <h3>  ${productItem.price}</h3>
                 </div>
+                <div class="buttons--item">
+                    <form action="/product" method="get" class="about--product">
+                        <c:url var="urlAbout" value="/product">
+                            <c:param name="productId" value="${productItem.id}"/>
+                        </c:url>
+                        <input type="button" value="Подробнее" class="catalog--button" onclick="window.location.href='${urlAbout}'"/>
+                    </form>
 
-                <div class="button--add--to--basket">
+                    <div class="button--add--to--basket">
 
-                    <button>
-                        <span> <h3> В корзину</h3></span>
-                    </button>
+                        <button>
+                            <span> <h3> В корзину</h3></span>
+                        </button>
 
+                    </div>
                 </div>
-
             </div>
-
-            <div class="container--item--confectionery">
-
-                <div class="image--item">
-                    <img src="${pageContext.request.contextPath}/img/ovsCookie.png" height="255px" width="290px">
-                </div>
-
-                <div class="name--item">
-                    <h3>  Овсяные печенья</h3>
-                </div>
-
-                <div class="description--item">
-
-                    <p>  Крутые классные бомбезные офигенные прикольные вкусные и ...</p>
-
-                </div>
-
-                <div class="price--item">
-                    <h3>  250₽</h3>
-                </div>
-
-                <div class="button--add--to--basket">
-
-                    <button>
-                        <span> <h3> В корзину</h3></span>
-                    </button>
-
-                </div>
-
-            </div>  <div class="container--item--confectionery">
-
-                <div class="image--item">
-                    <img src="${pageContext.request.contextPath}/img/ovsCookie.png" height="255px" width="290px">
-                </div>
-
-                <div class="name--item">
-                    <h3>  Овсяные печенья</h3>
-                </div>
-
-                <div class="description--item">
-
-                    <p>  Крутые классные бомбезные офигенные прикольные вкусные и ...</p>
-
-                </div>
-
-                <div class="price--item">
-                    <h3>  250₽</h3>
-                </div>
-
-                <div class="button--add--to--basket">
-
-                    <button>
-                        <span> <h3> В корзину</h3></span>
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="container--item--confectionery">
-
-                <div class="image--item">
-                    <img src="${pageContext.request.contextPath}/img/ovsCookie.png" height="255px" width="290px">
-                </div>
-
-                <div class="name--item">
-                    <h3>    Овсяные печенья</h3>
-                </div>
-
-                <div class="description--item">
-
-                    <p> Крутые классные бомбезные офигенные прикольные вкусные и ...</p>
-
-                </div>
-
-                <div class="price--item">
-                    <h3>  250₽</h3>
-                </div>
-
-                <div class="button--add--to--basket">
-
-                    <button>
-                        <span> <h3> В корзину</h3></span>
-                    </button>
-
-                </div>
-
-            </div>
-
-
-
+            </c:forEach>
 
         </div>
 

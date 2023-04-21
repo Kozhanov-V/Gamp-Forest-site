@@ -23,18 +23,15 @@ public class OrderedProduct {
     @Column(name = "quantity")
     private Integer quantity;
 
-    @Column(name = "price_per_unit", nullable = false)
-    private BigDecimal pricePerUnit;
 
     public OrderedProduct() {
     }
 
-    public OrderedProduct(Integer id, Order order, Product product, Integer quantity, BigDecimal pricePerUnit) {
+    public OrderedProduct(Integer id, Order order, Product product, Integer quantity) {
         this.id = id;
         this.order = order;
         this.product = product;
         this.quantity = quantity;
-        this.pricePerUnit = pricePerUnit;
     }
 
     public Integer getId() {
@@ -69,14 +66,5 @@ public class OrderedProduct {
         this.quantity = quantity;
     }
 
-    public BigDecimal getPricePerUnit() {
-        return pricePerUnit;
-    }
-
-    public void setPricePerUnit(BigDecimal pricePerUnit) {
-        this.pricePerUnit = pricePerUnit;
-    }
-
-    // Конструкторы, геттеры и сеттеры
 }
 

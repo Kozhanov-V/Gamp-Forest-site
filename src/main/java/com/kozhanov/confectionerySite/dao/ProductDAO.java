@@ -8,6 +8,6 @@ public interface ProductDAO {
 
     public List<Product> getAllProducts();
     public Product getProductbyId(int id);
-
+public List<Product>getLastSellsProduct(int count);
 
 }

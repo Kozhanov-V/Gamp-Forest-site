@@ -30,7 +30,10 @@ public class MainController {
     @RequestMapping("/product")
     public String showProductInfoPage(@RequestParam(name = "productId") int id,Model model){
         Product product = productService.getByIdProduct(id);
+        List<Product> productsLastSells= productService.getLastSellsProduct(4);
+
         model.addAttribute("product",product);
+        model.addAttribute("lastSells",productsLastSells);
         return "ProductInfo";
     }
 
