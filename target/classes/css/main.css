@@ -192,13 +192,14 @@ button:hover{
 .now--popular--second--block{
     position: relative;
     top: 200px;
-    left: 48px;
+    left: 200px;
     width: 1700px;
     display: flex;
 }
+
 .container--item--confectionery{
     position: relative;
-    left: 213px;
+    left: 0;
     top: 0px;
     width: 421px;
     height: 660px;
@@ -208,6 +209,11 @@ button:hover{
     border-radius: 20px;
     color: black;
 }
+
+.container--item--confectionery p {
+    max-width: 30ch;
+}
+
 
 .image--item{
     position: absolute;
@@ -227,7 +233,7 @@ button:hover{
 
 .description--item{
     position: absolute;
-    top: 370px;
+    top: 400px;
     left: 37px;
 }
 .price--item{
@@ -263,9 +269,8 @@ button:hover{
 .buttons--item{
     display: block;
 }
-.about--product{
-}
-.about--product button{
+
+input[type=button]{
     width: 200px;
     height: 50px;
     background: none;

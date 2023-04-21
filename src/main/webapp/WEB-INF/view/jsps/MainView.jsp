@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -82,114 +84,46 @@
 
             <div class="now--popular--second--block">
 
-                <div class="container--item--confectionery">
-
-                    <div class="image--item" >
-                        <img src="${pageContext.request.contextPath}/img/ovsCookie.png" height="255px" width="290px">
-                    </div>
-
-                    <div class="name--item">
-                        <h3>   Овсяные печенья</h3>
-                    </div>
-
-                    <div class="description--item">
-
-                        <p>  Крутые классные бомбезные офигенные прикольные вкусные и ...</p>
-
-                    </div>
-
-                    <div class="buttons--item">
-
-                        <form action="/product" method="get" class="about--product">
-                            <button class="catalog--button">
-                                Подробнее
-                            </button>
-                        </form>
-                        <form action="/addToBasket" class="button--add--to--basket">
-
-                            <button>
-                                <span> <h3> В корзину</h3></span>
-                            </button>
-
-                        </form>
-                    </div>
-                    <div class="price--item">
-                        <h3>  250₽</h3>
-                    </div>
-                </div>
+                <c:forEach var="productItem" items="${lastSells}">
 
                 <div class="container--item--confectionery">
 
-                    <div class="image--item" >
-                        <img src="${pageContext.request.contextPath}/img/ovsCookie.png" height="255px" width="290px">
+                        <div class="image--item" >
+                            <img src="${productItem.imageURL}" height="255px" width="290px">
+                        </div>
+
+                        <div class="name--item">
+                            <h3>   ${productItem.name}</h3>
+                        </div>
+
+                        <div class="description--item">
+
+                            <p>  ${fn:substring(productItem.description,0 , 90)}</p>
+
+                        </div>
+
+                        <div class="price--item">
+                            <h3>  ${productItem.price}</h3>
+                        </div>
+                        <div class="buttons--item">
+                            <form action="/product" method="get" class="about--product">
+                                <c:url var="urlAbout" value="/product">
+                                    <c:param name="productId" value="${productItem.id}"/>
+                                </c:url>
+                                <input type="button" value="Подробнее" class="catalog--button" onclick="window.location.href='${urlAbout}'"/>
+                            </form>
+
+                            <div class="button--add--to--basket">
+
+                                <button>
+                                    <span> <h3> В корзину</h3></span>
+                                </button>
+
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="name--item">
-                        <h3>   Овсяные печенья</h3>
-                    </div>
-
-                    <div class="description--item">
-
-                        <p>  Крутые классные бомбезные офигенные прикольные вкусные и ...</p>
-
-                    </div>
-
-                    <div class="buttons--item">
-
-                        <form action="/product" method="get" class="about--product">
-                            <button class="catalog--button">
-                                Подробнее
-                            </button>
-                        </form>
-                        <form action="/addToBasket" class="button--add--to--basket">
-
-                            <button>
-                                <span> <h3> В корзину</h3></span>
-                            </button>
-
-                        </form>
-                    </div>
-                    <div class="price--item">
-                        <h3>  250₽</h3>
-                    </div>
-                </div>
-
-                <div class="container--item--confectionery">
-
-                    <div class="image--item" >
-                        <img src="${pageContext.request.contextPath}/img/ovsCookie.png" height="255px" width="290px">
-                    </div>
-
-                    <div class="name--item">
-                        <h3>   Овсяные печенья</h3>
-                    </div>
-
-                    <div class="description--item">
-
-                        <p>  Крутые классные бомбезные офигенные прикольные вкусные и ...</p>
-
-                    </div>
-
-                    <div class="buttons--item">
-
-                        <form action="/product" method="get" class="about--product">
-                            <button class="catalog--button">
-                                Подробнее
-                            </button>
-                        </form>
-                        <form action="/addToBasket" class="button--add--to--basket">
-
-                            <button>
-                                <span> <h3> В корзину</h3></span>
-                            </button>
-
-                        </form>
-                    </div>
-                    <div class="price--item">
-                        <h3>  250₽</h3>
-                    </div>
-                </div>
-
+                </c:forEach>
 
             </div>
 
@@ -210,130 +144,6 @@ top: 140px; width:1350px; height:500px">
                 мальчик или же девочка. Вам останется только разрезать угощение и все карты станут
                 раскрыты! Подробности уточняйте по телефону
             </p>
-
-        </div>
-
-        <!-- ---------------------------- -->
-
-        <div class="second--block" style="
-    position: relative;
-    top: 117px;">
-
-            <h1>Акции&nbspи&nbspскидки</h1>
-
-            <div class="now--popular--second--block">
-
-                <div class="container--item--confectionery">
-
-                    <div class="image--item" >
-                        <img src="${pageContext.request.contextPath}/img/ovsCookie.png" height="255px" width="290px">
-                    </div>
-
-                    <div class="name--item">
-                        <h3>   Овсяные печенья</h3>
-                    </div>
-
-                    <div class="description--item">
-
-                        <p>  Крутые классные бомбезные офигенные прикольные вкусные и ...</p>
-
-                    </div>
-
-                    <div class="buttons--item">
-
-                        <form action="/product" method="get" class="about--product">
-                            <button class="catalog--button">
-                                Подробнее
-                            </button>
-                        </form>
-                        <form action="/addToBasket" class="button--add--to--basket">
-
-                            <button>
-                                <span> <h3> В корзину</h3></span>
-                            </button>
-
-                        </form>
-                    </div>
-                    <div class="price--item">
-                        <h3>  250₽</h3>
-                    </div>
-                </div>
-
-                <div class="container--item--confectionery">
-
-                    <div class="image--item" >
-                        <img src="${pageContext.request.contextPath}/img/ovsCookie.png" height="255px" width="290px">
-                    </div>
-
-                    <div class="name--item">
-                        <h3>   Овсяные печенья</h3>
-                    </div>
-
-                    <div class="description--item">
-
-                        <p>  Крутые классные бомбезные офигенные прикольные вкусные и ...</p>
-
-                    </div>
-
-                    <div class="buttons--item">
-
-                        <form action="/product" method="get" class="about--product">
-                            <button class="catalog--button">
-                                Подробнее
-                            </button>
-                        </form>
-                        <form action="/addToBasket" class="button--add--to--basket">
-
-                            <button>
-                                <span> <h3> В корзину</h3></span>
-                            </button>
-
-                        </form>
-                    </div>
-                    <div class="price--item">
-                        <h3>  250₽</h3>
-                    </div>
-                </div>
-
-                <div class="container--item--confectionery">
-
-                    <div class="image--item" >
-                        <img src="${pageContext.request.contextPath}/img/ovsCookie.png" height="255px" width="290px">
-                    </div>
-
-                    <div class="name--item">
-                        <h3>   Овсяные печенья</h3>
-                    </div>
-
-                    <div class="description--item">
-
-                        <p>  Крутые классные бомбезные офигенные прикольные вкусные и ...</p>
-
-                    </div>
-
-                    <div class="buttons--item">
-
-                        <form action="/product" method="get" class="about--product">
-                            <button class="catalog--button">
-                                Подробнее
-                            </button>
-                        </form>
-                        <form action="/addToBasket" class="button--add--to--basket">
-
-                            <button>
-                                <span> <h3> В корзину</h3></span>
-                            </button>
-
-                        </form>
-                    </div>
-                    <div class="price--item">
-                        <h3>  250₽</h3>
-                    </div>
-                </div>
-
-
-            </div>
-
 
         </div>
 

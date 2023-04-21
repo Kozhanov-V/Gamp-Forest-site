@@ -16,9 +16,10 @@ public class MainController {
     @Autowired
     ProductService productService;
 
-    @RequestMapping("/")
-    public String showMainPage(){
-
+    @GetMapping("/")
+    public String showMainPage(Model model){
+        List<Product> productsLastSells= productService.getLastSellsProduct(3);
+        model.addAttribute("lastSells",productsLastSells);
         return "MainView";
     }
 
