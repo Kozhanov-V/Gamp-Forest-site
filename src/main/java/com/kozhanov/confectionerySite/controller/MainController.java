@@ -62,5 +62,10 @@ public class MainController {
         model.addAttribute("products",productList);
         return "CatalogView";
     }
+    @GetMapping("/adminPage")
+    public String showAdminPage(){
+
+        return "adminPage";
+    }
 
 }

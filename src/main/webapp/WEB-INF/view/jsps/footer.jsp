@@ -56,7 +56,7 @@
                     <h3>emal@gmail.com</h3>
                 </div>
 
-                <button class="login--for--employee--footer">
+                <button class="login--for--employee--footer" onclick="window.location.href='/loginEmp'">
                     Вход для команды
                 </button>
 
