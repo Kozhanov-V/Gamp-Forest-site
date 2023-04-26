@@ -20,26 +20,34 @@ public class Employee {
     @Column(name = "phone", nullable = false)
     private String phone;
 
-    @Column(name = "email")
+    @Column(name = "email",nullable = false)
     private String email;
 
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "access_level")
-    private int accessLevel;
+    @Column(name = "enabled",nullable = false)
+    private boolean enabled;
 
-    public Employee() {
-    }
-
-    public Employee(Integer id, String fullName, String position, String phone, String email, String password, int accessLevel) {
+    public Employee(Integer id, String fullName, String position, String phone, String email, String password, boolean enabled) {
         this.id = id;
         this.fullName = fullName;
         this.position = position;
         this.phone = phone;
         this.email = email;
         this.password = password;
-        this.accessLevel = accessLevel;
+        this.enabled = enabled;
+    }
+
+    public Employee() {
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     public Integer getId() {
@@ -90,13 +98,7 @@ public class Employee {
         this.password = password;
     }
 
-    public int getAccessLevel() {
-        return accessLevel;
-    }
 
-    public void setAccessLevel(int accessLevel) {
-        this.accessLevel = accessLevel;
-    }
 
     // Конструкторы, геттеры и сеттеры
 }
