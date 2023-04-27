@@ -48,7 +48,7 @@ public class SecurityController {
             // Сохраните информацию о пользователе в сессии
             session.setAttribute("employee", employee);
             System.out.println(employee);
-            return "redirect:/adminPage";
+            return "redirect:/admin/";
 
         } else {
             // Если аутентификация не удалась, отправьте ошибку обратно на страницу логина

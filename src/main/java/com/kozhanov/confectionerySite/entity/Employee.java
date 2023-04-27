@@ -1,6 +1,8 @@
 package com.kozhanov.confectionerySite.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "employees")
@@ -28,6 +30,23 @@ public class Employee {
 
     @Column(name = "enabled",nullable = false)
     private boolean enabled;
+
+    private int role_id;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "authorities",
+    joinColumns = @JoinColumn(name = "id_user"),
+    inverseJoinColumns = @JoinColumn(name = "id_authority"))
+    private List<RoleEmp> roles;
+
+    public List<RoleEmp> getRoles() {
+        return roles;
+    }
+
+    public void addRole(RoleEmp roleEmp){
+        if(roles ==null)
+            roles = new ArrayList<>();
+        roles.add(roleEmp);
+    }
 
     public Employee(Integer id, String fullName, String position, String phone, String email, String password, boolean enabled) {
         this.id = id;

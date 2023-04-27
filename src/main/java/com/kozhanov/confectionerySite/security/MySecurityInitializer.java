@@ -1,4 +1,4 @@
-package com.kozhanov.confectionerySite.security.configuration;
+package com.kozhanov.confectionerySite.security;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 
