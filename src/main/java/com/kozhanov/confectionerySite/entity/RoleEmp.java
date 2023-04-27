@@ -1,9 +1,7 @@
 package com.kozhanov.confectionerySite.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "role_employees")
@@ -13,6 +11,9 @@ public class RoleEmp {
     private int id;
     @Column(name = "name")
     private String name;
+
+    @ManyToMany(mappedBy = "roles")
+    private List<Employee> employees;
 
     public RoleEmp() {
     }

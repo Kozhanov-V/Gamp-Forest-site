@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.NoResultException;
 
@@ -16,16 +17,29 @@ public class EmployeeDAOImpl implements EmployeeDAO{
     private SessionFactory sessionFactory;
 
     @Override
+    @Transactional
     public Employee getEmployeeByPhone(String phone) {
         Session session = sessionFactory.getCurrentSession();
-        Employee employee = (Employee) session.createQuery("from Employee where phone = :phone").setParameter("phone",phone).list().get(0);
+        Employee employee;
+        try{
+            employee = (Employee) session.createQuery("from Employee where phone = :phone").setParameter("phone",phone).list().get(0);
+        }catch (NoResultException e){
+            employee =null;
+        }
         return employee;
     }
 
     @Override
+    @Transactional
     public Employee getEmployeeByEmail(String email) {
         Session session = sessionFactory.getCurrentSession();
-        Employee employee = (Employee) session.createQuery("from Employee where email = :email").setParameter("email",email).list().get(0);
+        Employee employee;
+        try{
+            employee = (Employee) session.createQuery("from Employee where email = :email").setParameter("email",email).list().get(0);
+        }catch (NoResultException e){
+            employee =null;
+        }
+
         return employee;
     }
 

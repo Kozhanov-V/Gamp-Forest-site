@@ -31,8 +31,7 @@ public class Employee {
     @Column(name = "enabled",nullable = false)
     private boolean enabled;
 
-    private int role_id;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(name = "authorities",
     joinColumns = @JoinColumn(name = "id_user"),
     inverseJoinColumns = @JoinColumn(name = "id_authority"))

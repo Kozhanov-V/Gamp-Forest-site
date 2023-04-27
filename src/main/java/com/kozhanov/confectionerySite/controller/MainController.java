@@ -67,5 +67,10 @@ public class MainController {
 
         return "adminPage";
     }
+    @GetMapping("/user")
+    public String showUserPage(){
+
+        return "userPage";
+    }
 
 }
