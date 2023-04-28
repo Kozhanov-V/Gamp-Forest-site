@@ -13,7 +13,7 @@
 </head>
 <body>
 <!-- loginEmp.jsp -->
-<form action="${pageContext.request.contextPath}/authenticateTheEmployee" method="post">
+<form action="${pageContext.request.contextPath}/admin/authenticateTheEmployee" method="post">
     <input type="text" name="username" placeholder="Username" />
     <input type="password" name="password" placeholder="Password" />
     <input type="submit" value="Log in" />

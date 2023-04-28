@@ -6,17 +6,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class SecurityController {
-    @GetMapping("/loginEmp")
+    @GetMapping("/admin/loginEmp")
     public String showEmployeeLoginPage() {
         return "loginEmp";
     }
 
-    @GetMapping("/loginClient")
+    @GetMapping("/user/login")
     public String showClientLoginPage() {
-        return "loginClient";
-    }
-    @PostMapping("/loginClient")
-    public String showErorLoginPage() {
         return "loginClient";
     }
 }

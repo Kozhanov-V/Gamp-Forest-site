@@ -3,31 +3,33 @@ package com.kozhanov.confectionerySite.config;
 import com.kozhanov.confectionerySite.security.ClientUserDetailsService;
 import com.kozhanov.confectionerySite.security.EmployeeUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 
+@Order(2)
 @Configuration
 @EnableWebSecurity
-public class MySecurityConfig extends WebSecurityConfigurerAdapter {
-    @Autowired
-    private EmployeeUserDetailsService employeeUserDetailsService;
+public class AdminSecurityConfig extends WebSecurityConfigurerAdapter {
 
+
+    @Qualifier("employeeUserDetailsService")
     @Autowired
-    private ClientUserDetailsService clientUserDetailsService;
+    UserDetailsService userDetailsService;
+
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
-                .userDetailsService(employeeUserDetailsService)
-                .passwordEncoder(passwordEncoder())
-                .and()
-                .userDetailsService(clientUserDetailsService)
+                .userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoder());
     }
 
@@ -38,24 +40,27 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
+        http
+                .csrf().disable()
+                .antMatcher("/admin/**")
                 .authorizeRequests()
-                .antMatchers("/").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/user/**").hasRole("USER")
-                .anyRequest().authenticated()
+                .antMatchers("/admin/loginEmp").anonymous()
+
                 .and()
                 .formLogin()
-                .loginPage("/loginEmp")
-                .loginProcessingUrl("/authenticateTheEmployee")
-                .defaultSuccessUrl("/admin",true)
-                .failureUrl("/loginEmp?error=true")
+                .loginPage("/admin/loginEmp")
+                .loginProcessingUrl("/admin/authenticateTheEmployee")
+                .defaultSuccessUrl("/admin/adminPage",true)
+                .failureUrl("/admin/loginEmp?error=true")
                 .permitAll()
                 . and()
-                .exceptionHandling()
-                .accessDeniedPage("/loginEmp")
-                .and()
-                .logout().permitAll();
+                .logout()
+                .logoutUrl("/admin/logoutEmp")
+                .logoutSuccessUrl("/")
+                .deleteCookies("JSESSIONID")
+
+                .invalidateHttpSession(true);
     }
 
 

@@ -32,7 +32,7 @@
 
            <div class="login--signup--header">
 
-               <button class="login--header" onclick="window.location.href='/login'"><span>Log&nbspin</span></button>
+               <button class="login--header" onclick="window.location.href='/user/login'"><span>Log&nbspin</span></button>
 
                <button class="signup--header"><span>Sign up</span></button>
 
