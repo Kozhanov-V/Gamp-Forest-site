@@ -55,6 +55,7 @@ public class AdminSecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureUrl("/admin/loginEmp?error=true")
                 .permitAll()
                 . and()
+
                 .logout()
                 .logoutUrl("/admin/logoutEmp")
                 .logoutSuccessUrl("/")

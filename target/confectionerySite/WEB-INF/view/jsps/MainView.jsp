@@ -13,6 +13,26 @@
 
 </head>
 <body>
+
+
+
+<!--
+<sec:authorize access="isAuthenticated()">
+    -- Header для авторизованных пользователей --
+</sec:authorize>
+
+<sec:authorize access="isAnonymous()">
+    -- Header для анонимных пользователей --
+</sec:authorize>
+
+-->
+
+
+
+
+
+
+
 <div class="body">
     <jsp:include page="/WEB-INF/view/jsps/header.jsp"/>
     <div class="main">

@@ -10,18 +10,28 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
 </head>
 <body>
-<!-- loginEmp.jsp -->
-<form action="${pageContext.request.contextPath}/admin/authenticateTheEmployee" method="post">
-    <input type="text" name="username" placeholder="Username" />
-    <input type="password" name="password" placeholder="Password" />
-    <input type="submit" value="Log in" />
-</form>
-<c:if test="${param.error != null}">
-    <div class="alert alert-danger" role="alert">
-        Invalid username or password.
+
+    <div class="body">
+        <div class="button--go--back">
+            <a href=""> <img src="${pageContext.request.contextPath}/img/buttonGoBack.png"></a>
+        </div>
+        <div class="login--form">
+            <h2>Добро пожаловать! Войдите, чтобы пользоваться админ панелью .</h2>
+    <!-- loginEmp.jsp -->
+        <form action="${pageContext.request.contextPath}/admin/authenticateTheEmployee" method="post">
+            <input type="text" name="username" placeholder="Username" />
+            <input type="password" name="password" placeholder="Password" />
+            <input type="submit" value="Log in" />
+        </form>
+        <c:if test="${param.error != null}">
+            <div class="alert alert-danger" role="alert">
+                Invalid username or password.
+            </div>
+        </c:if>
     </div>
-</c:if>
+</div>
 </body>
 </html>

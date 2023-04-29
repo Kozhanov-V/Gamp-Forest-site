@@ -1,0 +1,60 @@
+.login--form{
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 720px;
+    height: 920px;
+    display: block;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.body{
+    position: relative;
+    height: 100%;
+}
+label{
+    font-size: 32px;
+}
+input[type=text],input[type=password]{
+    margin-top: 20px;
+    margin-bottom: 60px;
+    width: 520px;
+    height: 80px;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 24px;
+    padding-left: 70px;
+}
+.login--form h2{
+    height: 200px;
+    width: 530px;
+    text-align: center;
+    font-size: 48px;
+    margin-left: auto;
+    margin-right: auto;
+}
+form{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+input[type=submit]{
+    margin-top: 20px;
+    margin-bottom: 60px;
+    width: 520px;
+    height: 80px;
+    background-color: #C08D5D;
+    border-radius: 10px;
+    font-size: 24px;
+    padding: initial;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.alert-danger{
+    color: red;
+    font-size: 24px;
+}

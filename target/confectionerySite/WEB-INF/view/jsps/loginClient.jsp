@@ -10,17 +10,31 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/user/authenticateTheClient"  method="post">
-  <input type="text" name="username" placeholder="Username" />
-  <input type="password" name="password" placeholder="Password" />
-  <input type="submit" value="Log in" />
-</form>
-<c:if test="${param.error != null}">
-    <div class="alert alert-danger" role="alert">
-        Invalid username or password.
+<div class="body">
+    <div class="button--go--back">
+       <a href=""> <img src="${pageContext.request.contextPath}/img/buttonGoBack.png"></a>
     </div>
-</c:if>
+    <div class="login--form">
+
+
+            <h2>Добро пожаловать! Войдите, чтобы пользоваться сайтом.</h2>
+            <form action="${pageContext.request.contextPath}/user/authenticateTheClient"  method="post">
+                <label for="username">Ваш номер телефона или email</label><br/>
+              <input type="text" name="username" placeholder="Username" id="username"/><br/>
+                <label for="password">Ваш пароль</label><br/>
+              <input type="password" name="password" placeholder="Password" id="password"/><br/>
+                <c:if test="${param.error != null}">
+                    <div class="alert alert-danger" role="alert">
+                        Неправильный логин или пароль
+                    </div>
+                </c:if>
+              <input type="submit" value="Войти" />
+            </form>
+
+    </div>
+</div>
 </body>
 </html>
