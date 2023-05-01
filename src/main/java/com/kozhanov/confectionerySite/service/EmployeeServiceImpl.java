@@ -17,4 +17,9 @@ public class EmployeeServiceImpl implements EmployeeService{
     public Employee getEmployeeByLoginAndPassword(String login,String password) {
         return employeeDAO.getEmployeeByLoginAndPassword(login,password);
     }
+
+    @Override
+    public Employee getEmployeeByPhone(String username) {
+        return employeeDAO.getEmployeeByPhone(username);
+    }
 }

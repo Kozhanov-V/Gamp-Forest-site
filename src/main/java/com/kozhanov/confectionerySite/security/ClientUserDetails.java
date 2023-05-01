@@ -13,6 +13,8 @@ import java.util.List;
 public class ClientUserDetails implements UserDetails {
     private Client client;
 
+
+
     public ClientUserDetails(Client client) {
         this.client = client;
     }
@@ -22,6 +24,10 @@ public class ClientUserDetails implements UserDetails {
         List<GrantedAuthority> authorities = new ArrayList<>();
             authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
         return authorities;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     @Override
@@ -53,4 +59,7 @@ public class ClientUserDetails implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+
+
 }

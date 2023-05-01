@@ -9,4 +9,5 @@ public interface ProductService {
     public List<Product> filterProductsByParameters(String price, boolean chizkeik, boolean naborChizkeik);
     public Product getByIdProduct(int id);
     public List<Product> getLastSellsProduct(int count);
+    public List<Product> getLastSellsByUserId(int id);
 }

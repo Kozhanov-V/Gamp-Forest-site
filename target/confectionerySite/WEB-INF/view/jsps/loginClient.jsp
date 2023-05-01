@@ -15,7 +15,7 @@
 <body>
 <div class="body">
     <div class="button--go--back">
-       <a href=""> <img src="${pageContext.request.contextPath}/img/buttonGoBack.png"></a>
+       <a onclick="window.location.href='${previousPage}'"> <img src="${pageContext.request.contextPath}/img/buttonGoBack.png"></a>
     </div>
     <div class="login--form">
 

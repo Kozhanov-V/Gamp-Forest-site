@@ -86,6 +86,16 @@ public class Client {
         this.password = password;
     }
 
-    // Конструкторы, геттеры и сеттеры
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", fullName='" + fullName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", deliveryAddress='" + deliveryAddress + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
 

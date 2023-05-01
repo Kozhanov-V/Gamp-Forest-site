@@ -71,4 +71,10 @@ public class ProductServiceImpl implements ProductService{
         return productDAO.getLastSellsProduct(count);
     }
 
+    @Override
+    public List<Product> getLastSellsByUserId(int id) {
+        
+        return null;
+    }
+
 }
