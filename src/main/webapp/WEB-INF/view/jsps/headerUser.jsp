@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <header>
     <div class="header">
 
@@ -31,7 +32,7 @@
             </div>
 
             <div class="dropdown">
-                <a href="#" class="username-dropdown">Username</a>
+                <a href="#" class="username-dropdown"><sec:authentication property="principal.username" /></a>
                 <div class="dropdown-content">
                     <a href="/user/userPage">Личный профиль</a>
                     <a href="/user/cart">Корзина</a>

@@ -19,6 +19,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.security.Principal;
 import java.util.Collection;
@@ -39,8 +40,13 @@ public class MainController {
     @Autowired
     private ClientUserDetailsService clientUserDetailsService;
 
+
+    //-------------------------------------------------
+
     @GetMapping("/")
     public String showMainPage(Model model){
+
+
         List<Product> productsLastSells= productService.getLastSellsProduct(3);
         model.addAttribute("lastSells",productsLastSells);
         return "MainView";
@@ -85,15 +91,26 @@ public class MainController {
         model.addAttribute("products",productList);
         return "CatalogView";
     }
+
+    //-------------------------------------------------
     @GetMapping("/admin/adminPage")
     public String showAdminPage(){
 
         return "adminPage";
     }
+
+
+    //-------------------------------------------------
+
+
+
+
+
     @GetMapping("/user/userPage")
     public String showUserPage(Model model){
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         Client client = clientService.getClientByPhone(userDetails.getUsername());
 
@@ -110,7 +127,6 @@ public class MainController {
 
     @PostMapping("/user/updateUser")
     public  String updateUser(@ModelAttribute Client client){
-        System.out.println(client);
          clientService.updateClient(client);
 
          
@@ -131,5 +147,24 @@ public class MainController {
 
         return "redirect:/user/userPage";
     }
+
+
+
+    @PostMapping("/user/cart/add")
+    @ResponseBody
+    public String addToCart(@RequestParam Long productId) {
+        System.out.println("xuuuuuuuuuuuuuuuuuuuuuuuuuui");
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication.isAuthenticated()) {
+            System.out.println("тип добавил в корзину");
+        } else {
+            return "no success";
+        }
+
+        return "success"; // Вернуть строку "success" в качестве ответа на AJAX-запрос
+    }
+
+
+    //-------------------------------------------------
 
 }

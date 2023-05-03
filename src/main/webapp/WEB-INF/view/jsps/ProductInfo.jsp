@@ -2,6 +2,7 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,10 +12,19 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/aboutProduct.css">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/header.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/addToCart.js"></script>
+
 </head>
 <body>
 <div class="body">
-    <jsp:include page="/WEB-INF/view/jsps/header.jsp"/>
+    <sec:authorize access="isAuthenticated()">
+        <jsp:include page="/WEB-INF/view/jsps/headerUser.jsp"/>
+    </sec:authorize>
+    <sec:authorize access="isAnonymous()">
+        <jsp:include page="/WEB-INF/view/jsps/header.jsp"/>
+    </sec:authorize>
     <div class="main--block">
         <div>
             <div class="button--go--back">
@@ -75,9 +85,12 @@
 
                     <div class="button--add--to--basket">
 
-                        <button>
-                            <span> <h3> В корзину</h3></span>
-                        </button>
+                        <button class="add-to-cart" data-product-id="${productItem.id}"">В корзину</button>
+                        <div class="cart-item-controls" data-product-id="${productItem.id}" style="display: none;">
+                            <button class="decrease-quantity">-</button>
+                            <span class="item-quantity">0</span>
+                            <button class="increase-quantity">+</button>
+                        </div>
 
                     </div>
                 </div>

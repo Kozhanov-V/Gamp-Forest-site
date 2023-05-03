@@ -1,6 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -16,10 +17,20 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/slider.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/catalog.css">
+
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/header.js"></script>
+
 </head>
 <body>
     <div class="body">
-        <jsp:include page="/WEB-INF/view/jsps/header.jsp"/>
+
+        <sec:authorize access="isAuthenticated()">
+            <jsp:include page="/WEB-INF/view/jsps/headerUser.jsp"/>
+        </sec:authorize>
+        <sec:authorize access="isAnonymous()">
+            <jsp:include page="/WEB-INF/view/jsps/header.jsp"/>
+        </sec:authorize>
+
         <input type="hidden" id="price" data-price="${price}">
         <div class="filter--elements">
             <form id="filter-form"  action="/catalog" method="POST">

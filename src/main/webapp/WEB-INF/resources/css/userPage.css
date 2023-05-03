@@ -65,6 +65,7 @@ p{
 .field--elem--user h3{
     margin-top: 12px;
     width: 500px;
+    font-weight: normal;
 }
 .field--elem--user >*{
     margin-right: 100px;
@@ -77,6 +78,9 @@ p{
     border-radius: 5px;
     background-color: #C08D5D;
     color: white;
+    font-size: 24px;
+    cursor: pointer;
+    font-weight: normal;
 }
 
 #user-data button{
@@ -90,11 +94,13 @@ p{
     border-radius: 5px;
     background-color: #C08D5D;
     color: white;
+    font-size: 24px;
 }
 
 #cancel-btn{
     border: 2px solid black;
     background: none;
+    font-size: 24px;
 }
 
 .field--elem--user input[type=text],
@@ -106,6 +112,8 @@ p{
     background: none;
     border-radius: 10px;
     font-size: 24px;
+    padding-left: 20px;
+
 }
 
 .main--block{

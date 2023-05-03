@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -10,31 +11,22 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/header.js"></script>
 </head>
 <body>
 
 
-
-<!--
-<sec:authorize access="isAuthenticated()">
-    -- Header для авторизованных пользователей --
-</sec:authorize>
-
-<sec:authorize access="isAnonymous()">
-    -- Header для анонимных пользователей --
-</sec:authorize>
-
--->
-
-
-
-
-
-
-
 <div class="body">
-    <jsp:include page="/WEB-INF/view/jsps/header.jsp"/>
+
+    <sec:authorize access="isAuthenticated()">
+        <jsp:include page="/WEB-INF/view/jsps/headerUser.jsp"/>
+    </sec:authorize>
+    <sec:authorize access="isAnonymous()">
+        <jsp:include page="/WEB-INF/view/jsps/header.jsp"/>
+    </sec:authorize>
+
+
     <div class="main">
         <div class="layer--blur--first--block">
             <img src="${pageContext.request.contextPath}/img/LayerBlurMainImage.png">

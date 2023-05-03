@@ -1,3 +1,4 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -9,10 +10,18 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/contacts.css">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/header.js"></script>
+
 </head>
 <body>
 <div class="body">
-    <jsp:include page="/WEB-INF/view/jsps/header.jsp"/>
+    <sec:authorize access="isAuthenticated()">
+        <jsp:include page="/WEB-INF/view/jsps/headerUser.jsp"/>
+    </sec:authorize>
+    <sec:authorize access="isAnonymous()">
+        <jsp:include page="/WEB-INF/view/jsps/header.jsp"/>
+    </sec:authorize>
         <div class="main--block">
             <div class="contacts--block">
                 <h1>Контакты: </h1>

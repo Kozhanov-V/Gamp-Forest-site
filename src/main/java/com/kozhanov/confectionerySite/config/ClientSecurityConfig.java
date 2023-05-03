@@ -1,3 +1,4 @@
+
 package com.kozhanov.confectionerySite.config;
 
 import com.kozhanov.confectionerySite.security.ClientUserDetailsService;
@@ -23,8 +24,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Order(1)
-@EnableWebSecurity
 @Configuration
+@EnableWebSecurity
 public class ClientSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Qualifier("clientUserDetailsService")
@@ -75,3 +76,5 @@ public class ClientSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 }
+
+
