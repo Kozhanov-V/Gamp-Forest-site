@@ -9,7 +9,8 @@ import java.util.List;
 public interface CartItemService {
 
     public List<CartItem> getCartItemsByClient(Client client);
-    public void addProductToCart(Client client, Product product, int quantity);
+    public void saveProductToCart(Client client, Product product, int quantity);
+    public void saveProductToCart(int clientId, int productId, int quantity);
     public void removeProductFromCart(Client client, Product product);
 
 }

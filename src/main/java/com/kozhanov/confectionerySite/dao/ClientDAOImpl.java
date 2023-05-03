@@ -33,6 +33,19 @@ public class ClientDAOImpl implements ClientDAO {
     }
 
     @Override
+    public Client getClientById(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Client client;
+        try{
+            client = (Client) session.createQuery("from Client where id = :id").setParameter("id",id).getSingleResult();
+        }catch (NoResultException e){
+            client =null;
+        }
+
+        return client;
+    }
+
+    @Override
     @Transactional
     public Client getClientByEmail(String email) {
         Session session = sessionFactory.getCurrentSession();

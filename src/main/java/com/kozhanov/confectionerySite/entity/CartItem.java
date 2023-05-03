@@ -6,19 +6,30 @@ import javax.persistence.*;
 @Table(name = "cart_items")
 public class CartItem {
 
+    @Override
+    public String toString() {
+        return "CartItem{" +
+                "id=" + id +
+                ", client=" + client +
+                ", product=" + product +
+                ", quantity=" + quantity +
+                '}';
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id",nullable = false)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "client_id")
+    @JoinColumn(name = "client_id",nullable = false)
     private Client client;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "product_id",nullable = false)
     private Product product;
 
-    @Column(name = "quantity")
+    @Column(name = "quantity",nullable = false)
     private int quantity;
 
     public Long getId() {
@@ -63,5 +74,10 @@ public class CartItem {
         this.quantity = quantity;
     }
 
+    public CartItem(Client client, Product product, int quantity) {
+        this.client = client;
+        this.product = product;
+        this.quantity = quantity;
+    }
 }
 

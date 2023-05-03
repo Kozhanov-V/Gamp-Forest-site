@@ -85,13 +85,12 @@
 
                     <div class="button--add--to--basket">
 
-                        <button class="add-to-cart" data-product-id="${productItem.id}"">В корзину</button>
-                        <div class="cart-item-controls" data-product-id="${productItem.id}" style="display: none;">
-                            <button class="decrease-quantity">-</button>
-                            <span class="item-quantity">0</span>
-                            <button class="increase-quantity">+</button>
-                        </div>
-
+                            <button class="add-to-cart" data-product-id="${productItem.id}">В корзину</button>
+                            <div class="cart-item-controls" data-product-id="${productItem.id}" style="display: none;">
+                                <button class="decrease-quantity">-</button>
+                                <span class="item-quantity">0</span>
+                                <button class="increase-quantity">+</button>
+                            </div>
                     </div>
                 </div>
             </div>

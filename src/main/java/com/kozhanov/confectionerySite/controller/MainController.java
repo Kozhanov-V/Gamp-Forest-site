@@ -4,10 +4,14 @@ import com.kozhanov.confectionerySite.entity.Client;
 import com.kozhanov.confectionerySite.entity.Product;
 import com.kozhanov.confectionerySite.security.ClientUserDetails;
 import com.kozhanov.confectionerySite.security.ClientUserDetailsService;
+import com.kozhanov.confectionerySite.service.CartItemService;
 import com.kozhanov.confectionerySite.service.ClientService;
 import com.kozhanov.confectionerySite.service.OrderedProductService;
 import com.kozhanov.confectionerySite.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -29,17 +33,19 @@ import java.util.List;
 public class MainController {
 
     @Autowired
-    ProductService productService;
+    private ProductService productService;
 
     @Autowired
-    ClientService clientService;
+   private ClientService clientService;
 
     @Autowired
-    OrderedProductService orderedProductService;
+   private OrderedProductService orderedProductService;
 
     @Autowired
     private ClientUserDetailsService clientUserDetailsService;
 
+    @Autowired
+    private CartItemService cartItemService;
 
     //-------------------------------------------------
 
@@ -150,18 +156,23 @@ public class MainController {
 
 
 
-    @PostMapping("/user/cart/add")
+    @PostMapping(value = "/user/cart/save", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     @ResponseBody
-    public String addToCart(@RequestParam Long productId) {
-        System.out.println("xuuuuuuuuuuuuuuuuuuuuuuuuuui");
+    public ResponseEntity<?> updateCart(@RequestParam("productId") Integer productId,
+                                        @RequestParam("quantity") Integer quantity) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication.isAuthenticated()) {
-            System.out.println("тип добавил в корзину");
-        } else {
-            return "no success";
-        }
 
-        return "success"; // Вернуть строку "success" в качестве ответа на AJAX-запрос
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        Client client = clientService.getClientByPhone(userDetails.getUsername());
+        System.out.println(productId + " " + client.getId() + " " + quantity);
+
+        try {
+
+            cartItemService.saveProductToCart(client.getId(), productId, quantity);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 
