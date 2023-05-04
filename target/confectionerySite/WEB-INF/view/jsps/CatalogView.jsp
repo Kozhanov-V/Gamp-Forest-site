@@ -11,6 +11,7 @@
     <title>Главная</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/confectioneryItem.css">
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -19,6 +20,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/catalog.css">
 
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/header.js"></script>
+
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/addToCart.js"></script>
 
 </head>
 <body>
@@ -75,42 +78,10 @@
                 <% if(i%3==0){%>
                 <div class="container--for--products">
                 <%}%>
-                        <div class="container--item--confectionery" id="product-container">
 
-                            <div class="image--item" >
-                                <img src="${product.imageURL}" height="255px" width="290px">
-                            </div>
+                    <c:set var="productItem" value="${product}" scope="request" />
+                    <jsp:include page="confectioneryItem.jsp" />
 
-                            <div class="name--item">
-                                <h3>  ${product.name}</h3>
-                            </div>
-
-                            <div class="description--item">
-
-                                <p>  ${fn:substring(product.description, 0,90)}...</p>
-
-                            </div>
-
-                            <div class="buttons--item">
-
-                                <form action="/product" method="get" class="about--product">
-                                    <c:url var="urlAbout" value="/product">
-                                        <c:param name="productId" value="${product.id}"/>
-                                    </c:url>
-                                    <input type="button" value="Подробнее" class="catalog--button" onclick="window.location.href='${urlAbout}'"/>
-                                </form>
-                                <form action="/addToBasket" class="button--add--to--basket">
-
-                                    <button>
-                                        <span> <h3> В корзину</h3></span>
-                                    </button>
-
-                                </form>
-                            </div>
-                            <div class="price--item">
-                                <h3>  ${fn:substring(product.price,0 ,fn:indexOf(product.price, '.'))}₽</h3>
-                            </div>
-                        </div>
                     <% if((i+1)%3==0){%>
                 </div>
                     <%}%>
