@@ -53,7 +53,9 @@
 
 .button--add--to--basket{
     position: absolute;
-    top: 50px;
+    top: 65px;
+    left: 40px;
+    color: white;
 }
 .button--add--to--basket button{
     width: 200px;
@@ -65,6 +67,7 @@
     border: none;
     margin-top: 10px;
     font-size: 20px;
+    color: white;
 }
 
 .button--add--to--basket button span{
@@ -95,4 +98,28 @@ input[type=button]{
     position: absolute;
     top: 508px;
     left: 0px;
+}
+
+.cart-item-controls{
+    color: black;
+    display: flex;
+    font-size: 50px;
+}
+.cart-item-controls button{
+    color: black;
+    position: relative;
+    border: 2px solid black;
+    cursor: pointer;
+    font-size: 20px;
+    width: 66px;
+    height: 50px;
+    background: none;
+    border-radius: 10px;
+    margin-right: 41px;
+    left: 0px;
+}
+.item-quantity{
+    position: relative;
+    left: -20px;
+    top: 10px;
 }

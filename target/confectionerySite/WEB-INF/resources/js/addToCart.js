@@ -2,7 +2,9 @@ $(document).ready(function() {
     $('.add-to-cart').on('click', function() {
         const productId = $(this).data('product-id');
         // Здесь вы можете отправить запрос на сервер для добавления товара в корзину
+        console.log("ahahahah")
         updateCart(productId,1)
+        console.log("2ahahahah2")
         // После успешного добавления товара:
         $(this).hide();
         $(`.cart-item-controls[data-product-id="${productId}"]`).show().find('.item-quantity').text(1);
@@ -43,7 +45,7 @@ $(document).ready(function() {
 
     function updateCart(productId, quantity) {
 
-
+        console.log("1.3ahahahah1.3")
         $.ajax({
             url: '/user/cart/save',
             type: 'POST',
@@ -52,12 +54,13 @@ $(document).ready(function() {
                 quantity: quantity
             },
             success: function() {
-                // обновление отображения на странице
+                console.log("ашибка жок")
             },
             error: function() {
-                // обработка ошибок
+                console.log("ошибка")
             }
         });
+        console.log("1.6ahahahah1.6")
     }
 
 });

@@ -19,10 +19,11 @@ public class OrderedProductDAOImpl implements OrderedProductDAO{
     @Override
     public List<Product> getSellsByUser(int clientId, int count) {
         Session session = sessionFactory.getCurrentSession();
-        Query<Product> query = session.createQuery("Select o.product From OrderedProduct o where o.order.client.id = :clientId ORDER BY o.order.orderDate");
-        query.setParameter("clientId",clientId);
+        Query<Product> query = session.createQuery("SELECT o.product FROM OrderedProduct o WHERE o.order.client.id = :clientId GROUP BY o.product ORDER BY MAX(o.order.orderDate) DESC");
+        query.setParameter("clientId", clientId);
         query.setMaxResults(count);
 
         return query.getResultList();
     }
+
 }

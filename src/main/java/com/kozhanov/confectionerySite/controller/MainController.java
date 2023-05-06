@@ -168,6 +168,10 @@ public class MainController {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             Client client = clientService.getClientByPhone(userDetails.getUsername());
+            System.out.println(client);
+            if(client==null){
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
             Product product = productService.getByIdProduct(productId);
             CartItem updatedCartItem = updateCartItemsInSession(session, productId, quantity);
 
