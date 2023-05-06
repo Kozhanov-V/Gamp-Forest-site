@@ -2,12 +2,17 @@ $(document).ready(function() {
     $('.add-to-cart').on('click', function() {
         const productId = $(this).data('product-id');
         // Здесь вы можете отправить запрос на сервер для добавления товара в корзину
-        console.log("ahahahah")
-        updateCart(productId,1)
-        console.log("2ahahahah2")
-        // После успешного добавления товара:
-        $(this).hide();
-        $(`.cart-item-controls[data-product-id="${productId}"]`).show().find('.item-quantity').text(1);
+        console.log("ahahahah");
+      updateCart(productId,1)  .then(check => {
+          if(check){
+              $(this).hide();
+              $(`.cart-item-controls[data-product-id="${productId}"]`).show().find('.item-quantity').text(1);
+          }
+          else{
+              alert('error')
+          }
+      });
+
     });
 
 
@@ -44,23 +49,26 @@ $(document).ready(function() {
 
 
     function updateCart(productId, quantity) {
-
-        console.log("1.3ahahahah1.3")
-        $.ajax({
-            url: '/user/cart/save',
-            type: 'POST',
-            data: {
-                productId: productId,
-                quantity: quantity
-            },
-            success: function() {
-                console.log("ашибка жок")
-            },
-            error: function() {
-                console.log("ошибка")
-            }
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                url: '/api/cart/save',
+                type: 'POST',
+                data: {
+                    productId: productId,
+                    quantity: quantity
+                },
+                success: function() {
+                    resolve(true);
+                },
+                error: function(jqXHR) {
+                    if (jqXHR.status === 403) {
+                        window.location.href = "/user/login";
+                    }
+                    resolve(false);
+                }
+            });
         });
-        console.log("1.6ahahahah1.6")
     }
+
 
 });

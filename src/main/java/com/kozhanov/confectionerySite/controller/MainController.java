@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -155,20 +156,24 @@ public class MainController {
 
 
 
-    @PostMapping(value = "/user/cart/save", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    @PostMapping(value = "/api/cart/save", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     @ResponseBody
     public ResponseEntity<?> updateCart(@RequestParam("productId") Integer productId,
                                         @RequestParam("quantity") Integer quantity, HttpServletRequest request) {
 
 
-        HttpSession session = request.getSession();
+        System.out.println("вафыафывааывф");
 
         try {
-
+            HttpSession session = request.getSession();
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+            if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+                return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+            }
+
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             Client client = clientService.getClientByPhone(userDetails.getUsername());
-            System.out.println(client);
             if(client==null){
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
