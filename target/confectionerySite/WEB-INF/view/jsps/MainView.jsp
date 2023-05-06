@@ -99,10 +99,37 @@
 
             <div class="now--popular--second--block">
 
-                <c:forEach var="productItem" items="${lastSells}">
-                    <c:set var="productItem" value="${productItem}" scope="request" />
-                    <jsp:include page="confectioneryItem.jsp" />
-                </c:forEach>
+                <sec:authorize access="isAuthenticated()">
+                    <c:forEach var="productItem" items="${lastSells}">
+                        <c:set var="check" value="true"/>
+
+
+                        <c:forEach var="cartItem" items="${sessionScope.cartItems}">
+                            <c:if test="${cartItem.product.id==productItem.id}">
+
+                                <c:set var="cartItem" value = "${cartItem}" scope="request"/>
+                                <jsp:include page="cartItemOut.jsp" />
+                                <c:set var="check" value="false"/>
+                            </c:if>
+
+                        </c:forEach>
+                        <c:if test="${check}">
+                            <c:set var="productItem" value="${productItem}" scope="request" />
+                            <jsp:include page="confectioneryItem.jsp" />
+                        </c:if>
+
+
+                    </c:forEach>
+                </sec:authorize>
+
+
+
+                <sec:authorize access="isAnonymous()">
+                    <c:forEach var="productItem" items="${lastSells}">
+                        <c:set var="productItem" value="${productItem}" scope="request" />
+                        <jsp:include page="confectioneryItem.jsp" />
+                    </c:forEach>
+                </sec:authorize>
 
             </div>
 

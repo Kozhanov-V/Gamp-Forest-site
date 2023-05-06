@@ -2,6 +2,7 @@
 package com.kozhanov.confectionerySite.config;
 
 import com.kozhanov.confectionerySite.security.ClientUserDetailsService;
+import com.kozhanov.confectionerySite.security.CustomAuthenticationSuccessHandler;
 import com.kozhanov.confectionerySite.security.EmployeeUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -28,6 +29,9 @@ import java.io.IOException;
 @EnableWebSecurity
 public class ClientSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
+
     @Qualifier("clientUserDetailsService")
     @Autowired
     UserDetailsService userDetailsService;
@@ -51,7 +55,7 @@ public class ClientSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/user/login")
                 .loginProcessingUrl("/user/authenticateTheClient")
-                .defaultSuccessUrl("/user/userPage",true)
+                .successHandler(customAuthenticationSuccessHandler)
                 .failureUrl("/user/login?error=true")
                 .permitAll()
 

@@ -1,3 +1,5 @@
+<%@ page import="com.kozhanov.confectionerySite.entity.CartItem" %>
+<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
@@ -86,8 +88,24 @@
 
         <div class="container--for--products">
             <c:forEach var="productItem" items="${lastSells}">
-                <c:set var="productItem" value="${productItem}" scope="request" />
-                <jsp:include page="confectioneryItem.jsp" />
+                <c:set var="check" value="true"/>
+
+
+                <c:forEach var="cartItem" items="${sessionScope.cartItems}">
+                        <c:if test="${cartItem.product.id==productItem.id}">
+
+                            <c:set var="cartItem" value = "${cartItem}" scope="request"/>
+                            <jsp:include page="cartItemOut.jsp" />
+                            <c:set var="check" value="false"/>
+                        </c:if>
+
+                </c:forEach>
+                <c:if test="${check}">
+                    <c:set var="productItem" value="${productItem}" scope="request" />
+                    <jsp:include page="confectioneryItem.jsp" />
+                </c:if>
+
+
             </c:forEach>
 
         </div>

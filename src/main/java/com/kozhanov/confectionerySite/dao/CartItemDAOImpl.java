@@ -28,10 +28,18 @@ public class CartItemDAOImpl implements CartItemDAO{
     public List<CartItem> findByClient(Client client) {
 
         Session session = sessionFactory.getCurrentSession();
-           List<CartItem> cartItemsByClient = session.createQuery("from CartItem where client = :client").setParameter("client",client).getResultList();
 
 
-        return cartItemsByClient;
+        Query<CartItem> query = session.createQuery("SELECT c FROM CartItem c WHERE c.client = :client", CartItem.class);
+        query.setParameter("client", client);
+        List<CartItem> resultList = query.getResultList();
+
+        if (resultList.isEmpty()) {
+            return null;
+        } else {
+            return resultList;
+        }
+
     }
 
 
@@ -52,15 +60,15 @@ public class CartItemDAOImpl implements CartItemDAO{
 
     @Override
     public void removeCartItemOfCart(CartItem cartItem) {
+        System.out.println("from CartItemDAO:remove: " + cartItem);
         Session session = sessionFactory.getCurrentSession();
-        session.delete(cartItem);
+        session.remove(cartItem);
     }
 
 
 
     @Override
     public void saveCartItem(CartItem cartItem) {
-        System.out.println(cartItem.toString());
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(cartItem);
     }

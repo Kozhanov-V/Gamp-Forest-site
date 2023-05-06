@@ -79,8 +79,37 @@
                 <div class="container--for--products">
                 <%}%>
 
-                    <c:set var="productItem" value="${product}" scope="request" />
-                    <jsp:include page="confectioneryItem.jsp" />
+                    <sec:authorize access="isAnonymous()">
+                        <c:set var="productItem" value="${product}" scope="request" />
+                        <jsp:include page="confectioneryItem.jsp" />
+                   </sec:authorize>
+
+
+                    <sec:authorize access="isAuthenticated()">
+
+
+                        <c:set var="check" value="true"/>
+
+
+                        <c:forEach var="cartItem" items="${sessionScope.cartItems}">
+                            <c:if test="${cartItem.product.id==product.id}">
+
+                                <c:set var="cartItem" value = "${cartItem}" scope="request"/>
+                                <jsp:include page="cartItemOut.jsp" />
+                                <c:set var="check" value="false"/>
+                            </c:if>
+
+                        </c:forEach>
+                        <c:if test="${check}">
+                            <c:set var="productItem" value="${product}" scope="request" />
+                            <jsp:include page="confectioneryItem.jsp" />
+                        </c:if>
+
+
+
+                    </sec:authorize>
+
+
 
                     <% if((i+1)%3==0){%>
                 </div>

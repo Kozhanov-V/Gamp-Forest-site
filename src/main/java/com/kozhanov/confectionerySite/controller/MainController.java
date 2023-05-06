@@ -1,8 +1,8 @@
 package com.kozhanov.confectionerySite.controller;
 
+import com.kozhanov.confectionerySite.entity.CartItem;
 import com.kozhanov.confectionerySite.entity.Client;
 import com.kozhanov.confectionerySite.entity.Product;
-import com.kozhanov.confectionerySite.security.ClientUserDetails;
 import com.kozhanov.confectionerySite.security.ClientUserDetailsService;
 import com.kozhanov.confectionerySite.service.CartItemService;
 import com.kozhanov.confectionerySite.service.ClientService;
@@ -14,19 +14,18 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import java.math.BigDecimal;
+import javax.servlet.http.HttpSession;
 import java.security.Principal;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 @Controller
@@ -102,7 +101,7 @@ public class MainController {
     @GetMapping("/admin/adminPage")
     public String showAdminPage(){
 
-        return "adminPage";
+        return "AdminPage";
     }
 
 
@@ -128,7 +127,7 @@ public class MainController {
 
 
 
-        return "userPage";
+        return "UserPage";
     }
 
     @PostMapping("/user/updateUser")
@@ -159,16 +158,26 @@ public class MainController {
     @PostMapping(value = "/user/cart/save", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     @ResponseBody
     public ResponseEntity<?> updateCart(@RequestParam("productId") Integer productId,
-                                        @RequestParam("quantity") Integer quantity) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+                                        @RequestParam("quantity") Integer quantity, HttpServletRequest request) {
 
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        Client client = clientService.getClientByPhone(userDetails.getUsername());
-        System.out.println(productId + " " + client.getId() + " " + quantity);
+
+        HttpSession session = request.getSession();
 
         try {
 
-            cartItemService.saveProductToCart(client.getId(), productId, quantity);
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            Client client = clientService.getClientByPhone(userDetails.getUsername());
+            Product product = productService.getByIdProduct(productId);
+            CartItem updatedCartItem = updateCartItemsInSession(session, productId, quantity);
+
+            if(updatedCartItem==null){
+                cartItemService.removeProductFromCart(client,product);
+            }
+            else{
+                cartItemService.saveProductToCart(client,product,quantity);
+            }
+
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -176,6 +185,63 @@ public class MainController {
     }
 
 
-    //-------------------------------------------------
+    public CartItem updateCartItemsInSession(HttpSession session, Integer productId, int newQuantity) {
+        // Получаем список cartItems из сессии
+        List<CartItem> cartItems = (List<CartItem>) session.getAttribute("cartItems");
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        Client client = clientService.getClientByPhone(userDetails.getUsername());
+        CartItem nowCartItem = new CartItem(client,productService.getByIdProduct(productId),newQuantity);
+        if (cartItems == null) {
+            cartItems.add(nowCartItem);
+            return nowCartItem;
+        }
+        boolean check = false;
+        // Итерация по списку cartItems с использованием Iterator для безопасного удаления элемента во время итерации
+        Iterator<CartItem> iterator = cartItems.iterator();
+
+        CartItem updatedCartItem = null;
+        while (iterator.hasNext()) {
+            CartItem cartItem = iterator.next();
+            if (cartItem.getProduct().getId()==productId) {
+                check = true;
+                if (cartItem.getQuantity()+newQuantity <= 0) {
+                    // Удаляем элемент корзины из списка, если количество равно 0
+                    iterator.remove();
+                    updatedCartItem = null;
+                } else {
+                    // Обновляем количество продукта в корзине
+                    cartItem.setQuantity(cartItem.getQuantity()+newQuantity);
+                    updatedCartItem = cartItem;
+                }
+                break;
+            }
+        }
+
+        for (CartItem item: cartItems
+        ) {
+            System.out.println(item);
+        }
+
+        if(!check){
+            cartItems.add(nowCartItem);
+            return  nowCartItem;
+        }
+
+        // Обновляем список cartItems в сессии
+        session.setAttribute("cartItems", cartItems);
+        return updatedCartItem;
+    }
+
+
+
+
+    //-------------------------------------------------
+    @GetMapping("/user/isAuthenticated")
+    @ResponseBody
+    public boolean isAuthenticated(Principal principal) {
+        System.out.println("check");
+        return principal != null;
+    }
 }

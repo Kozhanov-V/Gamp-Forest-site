@@ -31,10 +31,15 @@ public class CartItemServiceImpl implements CartItemService{
     }
 
     @Override
+    public CartItem getCartItemByClientAndProduct(Client client, Product product) {
+        return cartItemDAO.findByClientAndProduct(client,product);
+    }
+
+    @Override
     @Transactional
     public void saveProductToCart(Client client, Product product, int quantity) {
         CartItem cartItem = cartItemDAO.findByClientAndProduct(client,product);
-        System.out.println(cartItem);
+
         if(cartItem==null){
             cartItem = new CartItem(client,product,quantity);
         }
@@ -51,6 +56,11 @@ public class CartItemServiceImpl implements CartItemService{
     }
 
     @Override
+    public void saveCartItem(CartItem cartItem) {
+        cartItemDAO.saveCartItem(cartItem);
+    }
+
+    @Override
     @Transactional
     public void saveProductToCart(int clientId, int productId, int quantity) {
         Client client = clientDAO.getClientById(clientId);
@@ -64,4 +74,11 @@ public class CartItemServiceImpl implements CartItemService{
         CartItem cartItem = cartItemDAO.findByClientAndProduct(client,product);
         cartItemDAO.removeCartItemOfCart(cartItem);
     }
+    @Override
+    @Transactional
+    public void removeCartItemFromCart(CartItem cartItem) {
+        cartItemDAO.removeCartItemOfCart(cartItem);
+    }
+
+
 }
