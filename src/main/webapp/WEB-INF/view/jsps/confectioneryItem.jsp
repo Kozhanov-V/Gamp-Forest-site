@@ -16,7 +16,7 @@
 
     <div class="description--item">
 
-        <p>  ${fn:substring(productItem.description,0 , 90)}</p>
+        <p>  ${fn:substring(productItem.description,0 , 90)}...</p>
 
     </div>
 

@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -161,34 +162,29 @@ public class MainController {
     public ResponseEntity<?> updateCart(@RequestParam("productId") Integer productId,
                                         @RequestParam("quantity") Integer quantity, HttpServletRequest request) {
 
-
-        System.out.println("вафыафывааывф");
-
         try {
             HttpSession session = request.getSession();
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
             if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
                 return new ResponseEntity<>(HttpStatus.FORBIDDEN);
             }
-
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             Client client = clientService.getClientByPhone(userDetails.getUsername());
             if(client==null){
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
             Product product = productService.getByIdProduct(productId);
-            CartItem updatedCartItem = updateCartItemsInSession(session, productId, quantity);
-
+            CartItem updatedCartItem = new CartItem();
+             updatedCartItem = updateCartItemsInSession(session, productId, quantity);
             if(updatedCartItem==null){
                 cartItemService.removeProductFromCart(client,product);
             }
             else{
                 cartItemService.saveProductToCart(client,product,quantity);
             }
-
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
+            e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -198,18 +194,18 @@ public class MainController {
         // Получаем список cartItems из сессии
         List<CartItem> cartItems = (List<CartItem>) session.getAttribute("cartItems");
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         Client client = clientService.getClientByPhone(userDetails.getUsername());
         CartItem nowCartItem = new CartItem(client,productService.getByIdProduct(productId),newQuantity);
         if (cartItems == null) {
+            cartItems = new ArrayList<>();
             cartItems.add(nowCartItem);
+            session.setAttribute("cartItems", cartItems);
             return nowCartItem;
         }
         boolean check = false;
         // Итерация по списку cartItems с использованием Iterator для безопасного удаления элемента во время итерации
         Iterator<CartItem> iterator = cartItems.iterator();
-
         CartItem updatedCartItem = null;
         while (iterator.hasNext()) {
             CartItem cartItem = iterator.next();
@@ -228,10 +224,7 @@ public class MainController {
             }
         }
 
-        for (CartItem item: cartItems
-        ) {
-            System.out.println(item);
-        }
+
 
         if(!check){
             cartItems.add(nowCartItem);

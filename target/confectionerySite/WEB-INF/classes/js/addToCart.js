@@ -9,7 +9,6 @@ $(document).ready(function() {
               $(`.cart-item-controls[data-product-id="${productId}"]`).show().find('.item-quantity').text(1);
           }
           else{
-              alert('error')
           }
       });
 
