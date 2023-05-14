@@ -39,11 +39,7 @@ public class MainController {
     @Autowired
    private ClientService clientService;
 
-    @Autowired
-   private OrderedProductService orderedProductService;
 
-    @Autowired
-    private ClientUserDetailsService clientUserDetailsService;
 
     @Autowired
     private CartItemService cartItemService;
@@ -99,61 +95,7 @@ public class MainController {
         return "CatalogView";
     }
 
-    //-------------------------------------------------
-    @GetMapping("/admin/adminPage")
-    public String showAdminPage(){
 
-        return "AdminPage";
-    }
-
-
-    //-------------------------------------------------
-
-
-
-
-
-    @GetMapping("/user/userPage")
-    public String showUserPage(Model model){
-
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        Client client = clientService.getClientByPhone(userDetails.getUsername());
-
-        List<Product> productList = orderedProductService.getSellsByUser(client.getId(),4);
-
-        model.addAttribute("lastSells",productList);
-
-        model.addAttribute("client",client);
-
-
-
-        return "UserPage";
-    }
-
-    @PostMapping("/user/updateUser")
-    public  String updateUser(@ModelAttribute Client client){
-         clientService.updateClient(client);
-
-         
-        // Получение объекта UserDetails для обновленного пользователя
-        UserDetails userDetails = clientUserDetailsService.loadUserByUsername(client.getPhone());
-
-        // Получение текущих прав доступа пользователя
-        Collection<SimpleGrantedAuthority> nowAuthorities =
-                (Collection<SimpleGrantedAuthority>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();
-
-        // Создание нового объекта аутентификации с обновленным объектом UserDetails
-        UsernamePasswordAuthenticationToken authentication =
-                new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), nowAuthorities);
-
-        // Обновление контекста аутентификации в Spring Security
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-
-
-        return "redirect:/user/userPage";
-    }
 
 
 
@@ -239,11 +181,4 @@ public class MainController {
 
 
 
-    //-------------------------------------------------
-    @GetMapping("/user/isAuthenticated")
-    @ResponseBody
-    public boolean isAuthenticated(Principal principal) {
-        System.out.println("check");
-        return principal != null;
-    }
 }
