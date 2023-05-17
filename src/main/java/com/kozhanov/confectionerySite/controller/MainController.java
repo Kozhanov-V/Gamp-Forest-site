@@ -107,24 +107,31 @@ public class MainController {
         try {
             HttpSession session = request.getSession();
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
             if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
                 return new ResponseEntity<>(HttpStatus.FORBIDDEN);
             }
+
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             Client client = clientService.getClientByPhone(userDetails.getUsername());
+
             if(client==null){
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
+
             Product product = productService.getByIdProduct(productId);
             CartItem updatedCartItem = new CartItem();
-             updatedCartItem = updateCartItemsInSession(session, productId, quantity);
+            updatedCartItem = updateCartItemsInSession(session, productId, quantity);
+
             if(updatedCartItem==null){
                 cartItemService.removeProductFromCart(client,product);
             }
             else{
                 cartItemService.saveProductToCart(client,product,quantity);
             }
+
             return new ResponseEntity<>(HttpStatus.OK);
+
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
