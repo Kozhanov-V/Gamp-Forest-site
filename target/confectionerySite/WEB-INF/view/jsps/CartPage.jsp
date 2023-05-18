@@ -95,11 +95,11 @@
     left: 55px;
     font-size: 32px;
     letter-spacing: 2px;
-"> Всего: ${fn:length(cartItems)} товара
+"> Всего:<span id="numberAllCartItem"> ${fn:length(cartItems)}</span> товара
                <c:set var="totalPrice" value="0"/>
             <c:forEach var="cartItem" items="${cartItems}">
                 <c:set var="totalPrice" value="${totalPrice + (cartItem.product.price * cartItem.quantity)}"/>
-            <br> - ${cartItem.product.name}
+                <span id="cartItem${cartItem.product.id}"> <br> - ${cartItem.product.name}</span>
 
             </c:forEach>
            </p>
