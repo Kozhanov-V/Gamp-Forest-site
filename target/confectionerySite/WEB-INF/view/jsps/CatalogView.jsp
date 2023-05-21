@@ -37,30 +37,24 @@
         <input type="hidden" id="price" data-price="${price}">
         <div class="filter--elements">
             <form id="filter-form"  action="/catalog" method="POST">
-            <p>
+                <p>
                     <span><label for="amount">Цена: </label></span>
-                <input type="text" id="amount" name="price" readonly style="border:0;color: black;background: none;font-size: 24px;margin-top: 15px;margin-left: 15px;">
-
-
-            </p>
-
+                    <input type="text" id="amount" name="price" readonly style="border:0;color: black;background: none;font-size: 24px;margin-top: 15px;margin-left: 15px;">
+                </p>
                 <div id="slider-range" style="height: 10px;width: 230px;margin-top: 20px;"></div>
-
                 <div class="catalog--elements">
                     <span>  Тип</span>
-                    <div class="element--catalog--elements">
-                        <input id="chizkeik" name="chizkeik"   type="checkbox" ${currentChizkeik ? 'checked' : ''}>
-                        <label for="chizkeik">Чизкейк</label>
-                    </div>
-
-                    <div class="element--catalog--elements">
-                        <input id="naborChizkeik" name="naborChizkeik" type="checkbox" ${currentNaborChizkeik ? 'checked' : ''}>
-                        <label for="naborChizkeik">Набор чизкейков</label>
-                    </div>
+                    <c:forEach var="entry" items="${categories}">
+                        <div class="element--catalog--elements">
+                            <input id="${fn:escapeXml(entry.key)}" name="${fn:escapeXml(entry.key)}" type="checkbox"
+                                ${entry.value.equals("on") ? 'checked' : ''}>
+                            <label for="${fn:escapeXml(entry.key)}">${fn:escapeXml(entry.key)}</label>
+                        </div>
+                    </c:forEach>
                 </div>
-
                 <input type="submit" value="Применить">
             </form>
+
         </div>
 
 
@@ -72,12 +66,20 @@
                     <h1>Закажи наши десерты в Самаре</h1>
                     <h2>Доставка в назначенное время и место</h2>
                 </div>
+                <c:if test="${empty products}">
+                    <h1 style="margin-bottom: 200px">В данный момент нет продуктов подходящих под ваши параметры</h1>
+                </c:if>
+                <c:if test="${not empty products}">
+
+                    <!-- Код для случая, когда список не пуст -->
+
                 <% int i=2;%>
                 <c:forEach var="product" items="${products}">
                     <% i++;%>
                 <% if(i%3==0){%>
                 <div class="container--for--products">
                 <%}%>
+
 
                     <sec:authorize access="isAnonymous()">
                         <c:set var="productItem" value="${product}" scope="request" />
@@ -119,7 +121,7 @@
                 </div>
                  <%}%>
 
-
+            </c:if>
             </div>
 
 

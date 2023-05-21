@@ -1,13 +1,11 @@
 package com.kozhanov.confectionerySite.controller;
 
 import com.kozhanov.confectionerySite.entity.CartItem;
+import com.kozhanov.confectionerySite.entity.Category;
 import com.kozhanov.confectionerySite.entity.Client;
 import com.kozhanov.confectionerySite.entity.Product;
 import com.kozhanov.confectionerySite.security.ClientUserDetailsService;
-import com.kozhanov.confectionerySite.service.CartItemService;
-import com.kozhanov.confectionerySite.service.ClientService;
-import com.kozhanov.confectionerySite.service.OrderedProductService;
-import com.kozhanov.confectionerySite.service.ProductService;
+import com.kozhanov.confectionerySite.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -25,10 +23,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class MainController {
@@ -43,6 +38,10 @@ public class MainController {
 
     @Autowired
     private CartItemService cartItemService;
+
+
+    @Autowired
+    private CategoryProductService categoryProductService;
 
     //-------------------------------------------------
 
@@ -71,19 +70,34 @@ public class MainController {
     }
 
     @PostMapping("/catalog")
-    public String filterProducts(
-            @RequestParam String price,
-            @RequestParam(required = false) boolean chizkeik,
-            @RequestParam(required = false) boolean naborChizkeik,
-            Model model
+    public String filterProducts(@RequestParam Map<String, String> activatyCategories, Model model
     ) {
-        // Фильтрация продуктов на основе параметров
-        List<Product> filteredProducts = productService.filterProductsByParameters(price, chizkeik, naborChizkeik);
+
+        List<Category> categoryList =categoryProductService.getAllCategoriesProducts();
+
+        HashMap<String, String> categories = new HashMap<>();
+        for (Category item: categoryList) {
+            categories.put(item.getName(),"off");
+        }
+
+        int i =0;
+        for(Map.Entry<String, String> entry : activatyCategories.entrySet()) {
+
+            String key = entry.getKey();
+            String value = entry.getValue();
+            if(i==0){
+                model.addAttribute(key,value.replaceAll("[^\\d.^-]", ""));
+                i++;
+                continue;
+            }
+            categories.put(entry.getKey(),entry.getValue());
+
+
+        }
+        List<Product> filteredProducts = productService.filterProductsByParameters(activatyCategories);
+
         model.addAttribute("products", filteredProducts);
-        model.addAttribute("currentChizkeik", chizkeik);
-        model.addAttribute("currentNaborChizkeik", naborChizkeik);
-        model.addAttribute("price",price.replaceAll("[^\\d.^-]", ""));
-        // Возвращаем страницу со списком продуктов после применения фильтров
+        model.addAttribute("categories",categories);
         return "CatalogView";
     }
 
@@ -91,7 +105,15 @@ public class MainController {
     @GetMapping("/catalog")
     public String showCatalogPage(Model model){
         List<Product> productList =productService.getAllProducts();
+        List<Category> categoryList =categoryProductService.getAllCategoriesProducts();
+
+        HashMap<String, String> categories = new HashMap<>();
+        for (Category item: categoryList) {
+            categories.put(item.getName(),"off");
+        }
+
         model.addAttribute("products",productList);
+        model.addAttribute("categories",categories);
         return "CatalogView";
     }
 

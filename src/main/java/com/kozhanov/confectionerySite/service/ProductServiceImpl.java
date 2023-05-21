@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -24,8 +26,8 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     @Transactional
-    public List<Product> filterProductsByParameters(String price, boolean chizkeik, boolean naborChizkeik) {
-        String[] priceRange = price.split(" - ");
+    public List<Product> filterProductsByParameters(Map<String, String> categories) {
+        String[] priceRange = categories.get("price").split(" - ");
 
         String minPriceStr = priceRange[0].replaceAll("[^\\d.]", "").trim();
         String maxPriceStr = priceRange[1].replaceAll("[^\\d.]", "").trim();
@@ -35,20 +37,25 @@ public class ProductServiceImpl implements ProductService{
 
         // Получаем все продукты
         List<Product> allProducts = productDAO.getAllProducts();
+        int i =0;
+        List<String> categoriesName = new ArrayList<>();
+        for (Map.Entry<String, String> employee : categories.entrySet()) {
+            if(i==0){
+                i++;
+                continue;
+            }
+            categoriesName.add(employee.getKey());
 
+        }
         // Фильтруем продукты по заданным параметрам
         List<Product> filteredProducts = allProducts.stream()
                 .filter(product -> product.getPrice().compareTo(minPrice) >= 0 && product.getPrice().compareTo(maxPrice) <= 0)
                 .filter(product -> {
-                    if (chizkeik && naborChizkeik) {
-                        return product.getCategory().getId() == 1 || product.getCategory().getId() == 2;
-                    } else if (chizkeik) {
-                        return product.getCategory().getId() == 1;
-                    } else if (naborChizkeik) {
-                        return product.getCategory().getId() == 2;
-                    } else {
-                        return true;
-                    }
+                   if(categoriesName.isEmpty()){
+                       return true;
+                   }else {
+                   return categoriesName.contains(product.getCategory().getName());
+                   }
                 })
                 .collect(Collectors.toList());
         for (Product item:
