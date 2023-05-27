@@ -2,7 +2,6 @@ $(document).ready(function() {
     $('.add-to-cart').on('click', function() {
         const productId = $(this).data('product-id');
         // Здесь вы можете отправить запрос на сервер для добавления товара в корзину
-        console.log("ahahahah");
       updateCart(productId,1)  .then(check => {
           if(check){
               $(this).hide();

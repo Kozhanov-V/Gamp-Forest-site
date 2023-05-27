@@ -1,0 +1,174 @@
+font-face {
+    font-family: PlayfairDisplay; /* Имя шрифта */
+    src: url(../fonts/PlayfairDisplay.ttf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+    font-family: PlayfairDisplayRegular; /* Имя шрифта */
+    src: url(../fonts/Playfair_Display_Regular.ttf); /* Путь к файлу со шрифтом */
+}
+html{
+    position: relative;
+    left: -8px;
+    top: -4px;
+    font-family: PlayfairDisplayRegular;
+    background: #FFFCF5;
+}
+button:hover{
+    border: 2px solid #C08D5D;
+    cursor: pointer;
+}
+
+button{
+    cursor: pointer;
+}
+
+.body{
+    justify-content: center;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+
+
+h1{
+    font-size: 70px;
+}
+
+h2{
+    font-size: 50px;
+}
+
+h3{
+    font-family: PlayfairDisplayRegular;
+    font-size: 32px;
+}
+
+p{
+    font-size: 18px;
+}
+.body{
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+button:hover{
+    border: 2px solid #C08D5D;
+    cursor: pointer;
+}
+.body{
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+
+.cart--block{
+    position: relative;
+    left: 239px;
+    display: flex;
+    margin-right: 100px;
+}
+.cart--block h1{
+    position: relative;
+    top: 19px;
+    letter-spacing: 2px;
+}
+.img--cart--item{
+    position: relative;
+    top: 100px;
+}
+
+
+.button--none, .button--none:hover{
+    border: none;
+    background: none;
+}
+
+.delete--cart--item{
+    top: 28px;
+    position: relative;
+    left: 455px;
+}
+
+.delete--cart--item p {
+    margin-top: 12px;
+    font-size: 32px;
+    margin-left: 20px;
+    letter-spacing: 2px;
+}
+.delete--cart--item img{
+    width: 60px;
+    height: 60px;
+}
+
+.cart--items{
+    display: block;
+    top: 180px;
+    position: relative;
+    left: -300px;
+}
+
+.cart--item{
+    position: relative;
+    display: flex;
+    margin-bottom: 50px;
+}
+.cart--item h2{
+    position: relative;
+    top: 50px;
+    left: 125px;
+}
+.cart--item h3{
+    position: relative;
+    left: 125px;
+    top: 40px;
+}
+.number--item--in--cart h3{
+    position: absolute;
+    left: 185px;
+    top: 45px;
+}
+.number--item--in--cart{
+    width: 60px;
+    height: 60px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 32px;
+}
+
+.number--item--in--cart > *{
+    margin-left: -103px;
+    /* margin-right: auto; */
+    margin-top: -37px;
+}
+
+.buttons--cart--item{
+    position: relative;
+    display: flex;
+    top: 50px;
+    left: 120px;
+}
+.buttons--cart--item > *{
+    margin-right: 15px;
+}
+
+.go--to--order{
+    position: relative;
+    top: 100px;
+    left: 110px;
+    margin-bottom: 100px;
+}
+#go--to--order{
+    width: 445px;
+    height: 120px;
+    border-radius: 20px;
+    background-color: #C08D5D;
+    color: white;
+    font-size: 34px;
+    border: none;
+    position: relative;
+    top: 180px;
+    left: 56px;
+}
+
+
