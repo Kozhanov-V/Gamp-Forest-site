@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.NoResultException;
+import java.util.List;
 
 @Repository
 public class ClientDAOImpl implements ClientDAO {
@@ -78,5 +79,13 @@ public class ClientDAOImpl implements ClientDAO {
     public void updateClient(Client client) {
         Session session = sessionFactory.getCurrentSession();
         session.update(client);
+    }
+
+    @Override
+    public List<Client> getAllClients() {
+        Session session = sessionFactory.getCurrentSession();
+        Query<Client> clientQuery = session.createQuery("from Client ");
+        List<Client> clients = clientQuery.getResultList();
+        return clients;
     }
 }

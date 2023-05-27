@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class ClientServiceImpl implements ClientService{
 
@@ -23,5 +25,11 @@ public class ClientServiceImpl implements ClientService{
     @Transactional
     public void updateClient(Client client) {
         clientDAO.updateClient(client);
+    }
+
+    @Override
+    @Transactional
+    public List<Client> getAllClients() {
+        return clientDAO.getAllClients();
     }
 }

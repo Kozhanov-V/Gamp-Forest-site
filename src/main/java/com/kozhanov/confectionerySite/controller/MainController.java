@@ -111,7 +111,6 @@ public class MainController {
         for (Category item: categoryList) {
             categories.put(item.getName(),"off");
         }
-
         model.addAttribute("products",productList);
         model.addAttribute("categories",categories);
         return "CatalogView";

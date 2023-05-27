@@ -1,6 +1,8 @@
 package com.kozhanov.confectionerySite.dao;
 
 import com.kozhanov.confectionerySite.entity.Employee;
+import com.kozhanov.confectionerySite.entity.Order;
+import com.kozhanov.confectionerySite.entity.OrderedProduct;
 import com.kozhanov.confectionerySite.entity.Product;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -24,6 +26,23 @@ public class OrderedProductDAOImpl implements OrderedProductDAO{
         query.setMaxResults(count);
 
         return query.getResultList();
+    }
+
+    @Override
+    public List<OrderedProduct> getAllOrders() {
+        Session session = sessionFactory.getCurrentSession();
+        Query<OrderedProduct> orderedProductQuery = session.createQuery("From OrderedProduct ");
+        List<OrderedProduct> orderedProductList = orderedProductQuery.getResultList();
+        return orderedProductList;
+    }
+
+    @Override
+    public List<OrderedProduct> getByOrder(Order order) {
+        Session session = sessionFactory.getCurrentSession();
+        Query<OrderedProduct> query = session.createQuery("from OrderedProduct op where op.order = :order");
+        query.setParameter("order",order);
+        List<OrderedProduct> orderedProductList = query.getResultList();
+        return orderedProductList;
     }
 
 }
