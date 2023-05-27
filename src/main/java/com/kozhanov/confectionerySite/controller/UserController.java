@@ -56,7 +56,7 @@ public class UserController {
 
 
 
-        return "UserPage";
+        return "userPages/UserPage";
     }
 
     @PostMapping("/updateUser")
@@ -87,7 +87,7 @@ public class UserController {
 
         List<Product> productsLastSells= productService.getLastSellsProduct(4);
         model.addAttribute("lastSells", productsLastSells);
-        return "CartPage";
+        return "userPages/CartPage";
     }
 
 

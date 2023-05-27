@@ -4,16 +4,13 @@ import com.kozhanov.confectionerySite.entity.CartItem;
 import com.kozhanov.confectionerySite.entity.Category;
 import com.kozhanov.confectionerySite.entity.Client;
 import com.kozhanov.confectionerySite.entity.Product;
-import com.kozhanov.confectionerySite.security.ClientUserDetailsService;
 import com.kozhanov.confectionerySite.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -22,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.security.Principal;
 import java.util.*;
 
 @Controller
@@ -51,13 +47,13 @@ public class MainController {
 
         List<Product> productsLastSells= productService.getLastSellsProduct(3);
         model.addAttribute("lastSells",productsLastSells);
-        return "MainView";
+        return "mainPages/MainView";
     }
 
     @RequestMapping("/contacts")
     public String showContactsPage(){
 
-        return "ContactsView";
+        return "mainPages/ContactsView";
     }
     @RequestMapping("/product")
     public String showProductInfoPage(@RequestParam(name = "productId") int id,Model model){
@@ -66,7 +62,7 @@ public class MainController {
 
         model.addAttribute("product",product);
         model.addAttribute("lastSells",productsLastSells);
-        return "ProductInfo";
+        return "mainPages/ProductInfo";
     }
 
     @PostMapping("/catalog")
@@ -98,7 +94,7 @@ public class MainController {
 
         model.addAttribute("products", filteredProducts);
         model.addAttribute("categories",categories);
-        return "CatalogView";
+        return "mainPages/CatalogView";
     }
 
 
@@ -113,7 +109,7 @@ public class MainController {
         }
         model.addAttribute("products",productList);
         model.addAttribute("categories",categories);
-        return "CatalogView";
+        return "mainPages/CatalogView";
     }
 
 

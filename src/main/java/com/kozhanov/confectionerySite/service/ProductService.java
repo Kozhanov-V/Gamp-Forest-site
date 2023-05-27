@@ -10,5 +10,4 @@ public interface ProductService {
     public List<Product> filterProductsByParameters(Map<String, String> categories);
     public Product getByIdProduct(int id);
     public List<Product> getLastSellsProduct(int count);
-    public List<Product> getLastSellsByUserId(int id);
 }
