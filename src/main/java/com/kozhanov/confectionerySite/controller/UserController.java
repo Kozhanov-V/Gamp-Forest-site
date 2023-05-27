@@ -6,6 +6,7 @@ import com.kozhanov.confectionerySite.security.ClientUserDetailsService;
 import com.kozhanov.confectionerySite.service.CartItemService;
 import com.kozhanov.confectionerySite.service.ClientService;
 import com.kozhanov.confectionerySite.service.OrderedProductService;
+import com.kozhanov.confectionerySite.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -36,6 +37,9 @@ public class UserController {
     @Autowired
     private CartItemService cartItemService;
 
+    @Autowired
+    private ProductService productService;
+
     @GetMapping("/userPage")
     public String showUserPage(Model model){
 
@@ -52,7 +56,7 @@ public class UserController {
 
 
 
-        return "UserPage";
+        return "userPages/UserPage";
     }
 
     @PostMapping("/updateUser")
@@ -81,7 +85,9 @@ public class UserController {
     @GetMapping("/cart")
     public String showCartPage(Model model){
 
-        return "CartPage";
+        List<Product> productsLastSells= productService.getLastSellsProduct(4);
+        model.addAttribute("lastSells", productsLastSells);
+        return "userPages/CartPage";
     }
 
 

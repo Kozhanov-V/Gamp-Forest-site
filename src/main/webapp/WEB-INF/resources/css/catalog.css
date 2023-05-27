@@ -83,12 +83,12 @@ input[type=submit]{
     height: 50px;
     background-color: #C08D5D;
     border-radius: 10px;
-    position: absolute;
+    position: relative;
     border: none;
     margin-top: 10px;
     font-size: 20px;
     cursor: pointer;
-    top: 252px;
+    top: 30px;
     color: white;
     left: -20px;
 }
@@ -106,7 +106,7 @@ input[type=submit]:hover{
 }
 .element--catalog--elements{
     position: relative;
-    margin-top: 10px;
+    margin-bottom: 15px;
     left: 10px;
     font-size: 21px;
 }
