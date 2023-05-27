@@ -1,9 +1,7 @@
 package com.kozhanov.confectionerySite.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +15,7 @@ public class SecurityController {
            String referrer = request.getHeader("referer");
            session.setAttribute("previousPage", referrer);
        }
-        return "loginEmp";
+        return "authPages/loginEmp";
     }
 
     @GetMapping("/user/login")
@@ -27,6 +25,6 @@ public class SecurityController {
             session.setAttribute("previousPage", referrer);
         }
 
-        return "loginClient";
+        return "authPages/loginClient";
     }
 }
