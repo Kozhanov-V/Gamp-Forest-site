@@ -11,4 +11,5 @@ public interface CartItemDAO {
    public CartItem findByClientAndProduct(Client client, Product product);
    public void removeCartItemOfCart(CartItem cartItem);
    public void saveCartItem(CartItem cartItem);
+
 }
