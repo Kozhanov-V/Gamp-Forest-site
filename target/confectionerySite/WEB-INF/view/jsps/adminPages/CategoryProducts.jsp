@@ -25,10 +25,25 @@
             background-color: #f2f2f2;
         }
     </style>
+
+
+
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/leftSidebarAdm.css">
+
+
+
 </head>
 <body>
 
 <h2>Пример табличных данных</h2>
+<jsp:include page="/WEB-INF/view/jsps/includes/leftSideBarAdm.jsp"/>
 
 <table>
     <tr>
@@ -46,6 +61,6 @@
     </c:forEach>
 
 </table>
-
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/leftSidebarAdm.js"></script>
 </body>
 </html>

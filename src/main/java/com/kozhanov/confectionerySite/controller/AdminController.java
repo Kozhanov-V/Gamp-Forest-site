@@ -33,6 +33,12 @@ public class AdminController {
     @Autowired
     private EmployeeService employeeService;
 
+    @Autowired
+    private PurchaseService purchaseService;
+
+    @Autowired
+    private SupplierService supplierService;
+
     @GetMapping("/adminPage")
     public String showAdminPage(){
 
@@ -69,6 +75,18 @@ public class AdminController {
         List<Employee> employeeList = employeeService.getAllEmployees();
         model.addAttribute("employeeList",employeeList);
         return "adminPages/AllEmployees";
+    }
+    @GetMapping("/edit/purchases")
+    public String showAllPurchase(Model model){
+        List<Purchase> purchaseList = purchaseService.getAllPurchase();
+        model.addAttribute("purchaseList",purchaseList);
+        return "adminPages/AllPurchases";
+    }
+    @GetMapping("/edit/suppliers")
+    public String showAllSupplier(Model model){
+        List<Supplier> supplierList = supplierService.getAllSupplier();
+        model.addAttribute("supplierList",supplierList);
+        return "adminPages/AllSuppliers";
     }
 
 

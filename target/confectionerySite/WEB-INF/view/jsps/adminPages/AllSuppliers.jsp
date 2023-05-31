@@ -25,41 +25,46 @@
             background-color: #f2f2f2;
         }
     </style>
+
+
+
+
+
+
+
+
+
+
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/leftSidebarAdm.css">
+
+
+
 </head>
 <body>
 
 <h2>Пример табличных данных</h2>
 <jsp:include page="/WEB-INF/view/jsps/includes/leftSideBarAdm.jsp"/>
+
 <table>
     <tr>
         <th>id</th>
-        <th>ФИО Работника</th>
-        <th>Телефон</th>
-        <th>email</th>
-        <th>Позиция работника</th>
-        <th>Роли</th>
-        <th>enabled</th>
+        <th>Имя поставщика</th>
+        <th>Номер телефона</th>
+        <th>Email</th>
+        <th>Адресс</th>
+
     </tr>
-    <c:forEach var="employee" items="${employeeList}">
+    <c:forEach var="supplier" items="${supplierList}" >
         <tr>
-            <td>${employee.id}</td>
-            <td>${employee.fullName}</td>
-            <td>${employee.phone}</td>
-            <td>${employee.email}</td>
-            <td>${employee.position}</td>
-            <td>
-            <c:forEach var="role" items="${employee.roles}">
-                <c:out value="${role.name}"/><br/>
-            </c:forEach>
-            </td>
-            <td>${employee.enabled}</td>
+            <td>${supplier.name}</td>
+            <td>${supplier.phone}</td>
+            <td>${supplier.email}</td>
+            <td>${supplier.address}</td>
 
         </tr>
     </c:forEach>
+
 </table>
-
-
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/leftSidebarAdm.js"></script>
 </body>
 </html>
