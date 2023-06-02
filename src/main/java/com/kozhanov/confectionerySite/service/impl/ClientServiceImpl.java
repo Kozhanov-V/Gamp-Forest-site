@@ -33,4 +33,16 @@ public class ClientServiceImpl implements ClientService {
     public List<Client> getAllClients() {
         return clientDAO.getAllClients();
     }
+
+    @Override
+    @Transactional
+    public Client getClientById(int id) {
+        return clientDAO.getClientById(id);
+    }
+
+    @Override
+    @Transactional
+    public void deleteClient(int id) {
+        clientDAO.deleteClient(id);
+    }
 }

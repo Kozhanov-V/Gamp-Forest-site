@@ -35,7 +35,7 @@
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
           destroy-method="close">
         <property name="driverClass" value="com.mysql.cj.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/confectionery?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/confectionery?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC" />
         <property name="user" value="root" />
         <property name="password" value="ruaFR6i-TQ-k" />
     </bean>
@@ -76,7 +76,6 @@
 
 
 </beans>
-
 
 
 

@@ -8,4 +8,6 @@ public interface ClientService {
     public Client getClientByPhone(String username);
     public void updateClient(Client client);
     public List<Client> getAllClients();
+    public Client getClientById(int id);
+    public void deleteClient(int id);
 }

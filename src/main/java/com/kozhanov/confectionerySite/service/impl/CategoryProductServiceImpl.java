@@ -21,4 +21,22 @@ public class CategoryProductServiceImpl implements CategoryProductService {
     public List<Category> getAllCategoriesProducts() {
         return categoryProductsDAO.getAllCategory();
     }
+
+    @Override
+    @Transactional
+    public Category getByIdCategory(int id) {
+        return categoryProductsDAO.getByIdCategory(id);
+    }
+
+    @Override
+    @Transactional
+    public void updateCategory(Category category) {
+        categoryProductsDAO.updateCategory(category);
+    }
+
+    @Override
+    @Transactional
+    public void deleteCategory(int id) {
+        categoryProductsDAO.deleteCategory(id);
+    }
 }

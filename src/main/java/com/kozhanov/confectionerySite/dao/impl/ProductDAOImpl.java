@@ -41,5 +41,17 @@ public class ProductDAOImpl implements ProductDAO {
         return productList;
     }
 
+    @Override
+    public void deleteProduct(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        session.remove(getProductbyId(id));
+    }
+
+    @Override
+    public void updateProduct(Product product) {
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(product);
+    }
+
 
 }

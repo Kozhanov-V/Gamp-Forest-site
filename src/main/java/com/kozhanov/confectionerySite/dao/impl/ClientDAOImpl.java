@@ -43,7 +43,6 @@ public class ClientDAOImpl implements ClientDAO {
         }catch (NoResultException e){
             client =null;
         }
-
         return client;
     }
 
@@ -79,7 +78,7 @@ public class ClientDAOImpl implements ClientDAO {
     @Override
     public void updateClient(Client client) {
         Session session = sessionFactory.getCurrentSession();
-        session.update(client);
+        session.saveOrUpdate(client);
     }
 
     @Override
@@ -88,5 +87,11 @@ public class ClientDAOImpl implements ClientDAO {
         Query<Client> clientQuery = session.createQuery("from Client ");
         List<Client> clients = clientQuery.getResultList();
         return clients;
+    }
+
+    @Override
+    public void deleteClient(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        session.remove(getClientById(id));
     }
 }

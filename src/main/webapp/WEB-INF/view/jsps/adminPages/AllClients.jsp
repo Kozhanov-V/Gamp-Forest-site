@@ -26,29 +26,38 @@
         }
     </style>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/leftSidebarAdm.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
 <body>
 
 <h2>Пример табличных данных</h2>
 <jsp:include page="/WEB-INF/view/jsps/includes/leftSideBarAdm.jsp"/>
-<table>
+<table id="dataTable">
     <tr>
         <th>id</th>
         <th>ФИО Заказчика</th>
         <th>Телефон</th>
         <th>email</th>
+        <th></th>
+        <th></th>
     </tr>
     <c:forEach var="client" items="${clientList}">
         <tr>
-            <td>${client.id}</td>
-            <td>${client.fullName}</td>
-            <td>${client.phone}</td>
-            <td>${client.email}</td>
+            <td class="id">${client.id}</td>
+            <td class="fullname">${client.fullName}</td>
+            <td class="phone">${client.phone}</td>
+            <td class="email">${client.email}</td>
+            <td><button class="updateBtn">Обновить</button> </td>
+            <td><button class="deleteBtn">Удалить</button> </td>
         </tr>
     </c:forEach>
 </table>
 
-
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/leftSidebarAdm.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/ClientsAdm.js"></script>
 </body>
+</html>
+
 </html>

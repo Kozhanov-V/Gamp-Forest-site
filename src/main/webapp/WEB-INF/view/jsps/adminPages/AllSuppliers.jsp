@@ -60,7 +60,8 @@
             <td>${supplier.phone}</td>
             <td>${supplier.email}</td>
             <td>${supplier.address}</td>
-
+            <td><button class="updateBtn">Обновить</button> </td>
+            <td><button class="deleteBtn">Удалить</button> </td>
         </tr>
     </c:forEach>
 

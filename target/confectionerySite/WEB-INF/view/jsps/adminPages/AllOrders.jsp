@@ -38,30 +38,52 @@
         <th>Список продуктов</th>
         <th>Кол-во</th>
         <th>Статус заказа</th>
+        <th>Дата заказа</th>
         <th>Итоговая цена</th>
+        <th>
+            <input type='text'/><br/>
+            <input type='text'/>
+        </th>
     </tr>
     <c:forEach var="order" items="${allOrders}">
         <tr>
-            <td>${order.id}</td>
-            <td>${order.clientName}</td>
-            <td>
+            <td class="id">${order.id}</td>
+            <td class="clientName">${order.clientName}</td>
+            <td class="productList">
                 <c:forEach var="product" items="${order.products}">
                     <c:out value="${product.key}"/><br/>
                 </c:forEach>
             </td>
-            <td>
+            <td class="productQuantity">
                 <c:forEach var="product" items="${order.products}">
                     <c:out value="${product.value}"/><br/>
                 </c:forEach>
             </td>
-            <td>${order.status}</td>
-            <td>${order.totalCost}</td>
+            <td class="status">${order.status}</td>
+            <td class="orderDate">${order.orderDate}</td>
+
+            <td class="totalCost">${order.totalCost}</td>
+            <td><button class="updateBtn">Обновить</button> </td>
+            <td><button class="deleteBtn">Удалить</button> </td>
         </tr>
     </c:forEach>
 </table>
 
+<script>
+    var allProducts =[
 
+            <c:forEach var="product" items="${allProducts}">
+
+        {
+            id: ${product.id},
+            name: "${product.name}",
+        },
+            </c:forEach>
+
+    ]
+</script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/leftSidebarAdm.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/OrdersAdm.js"></script>
 </body>
 
 </html>

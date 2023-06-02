@@ -34,6 +34,7 @@ public class OrderServiceImpl implements OrderService {
             dto.setClientName(order.getClient().getFullName());
             dto.setStatus(order.getStatus());
             dto.setTotalCost(order.getTotalCost());
+            dto.setOrderDate(order.getOrderDate());
             List<OrderedProduct> orderedProducts =orderedProductDAO.getByOrder(order);
 
 

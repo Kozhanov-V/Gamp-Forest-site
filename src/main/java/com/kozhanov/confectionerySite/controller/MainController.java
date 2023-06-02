@@ -86,6 +86,7 @@ public class MainController {
                 i++;
                 continue;
             }
+            System.out.println(entry.getKey()+ " " + entry.getValue());
             categories.put(entry.getKey(),entry.getValue());
 
 

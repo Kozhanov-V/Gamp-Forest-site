@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%--
   Created by IntelliJ IDEA.
   User: vkozh
@@ -26,6 +27,22 @@
         }
     </style>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/leftSidebarAdm.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        var categoryList =[
+        <c:forEach var="category" items="${categoryList}">
+            {
+                id: ${category.id},
+                name: "${category.name}",
+                description: "${category.description}",
+            },
+        </c:forEach>
+        ]
+    </script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/ProductsAdm.js">
+    </script>
 </head>
 <body>
 
@@ -42,17 +59,22 @@
     </tr>
     <c:forEach var="product" items="${products}" >
     <tr>
-        <td>${product.id}</td>
-        <td>${product.name}</td>
-        <td>${product.category.name}</td>
-        <td>${product.description}</td>
-        <td>${product.price}</td>
-        <td>${product.isStock}</td>
+        <td class="id">${product.id}</td>
+        <td class="name">${product.name}</td>
+        <td class="categoryName">${product.category.name}</td>
+        <td class="description">${product.description}</td>
+        <td class="price">${product.price}</td>
+        <td class="stock">${product.isStock}</td>
+        <td><button class="updateBtn">Обновить</button> </td>
+        <td><button class="deleteBtn">Удалить</button> </td>
     </tr>
     </c:forEach>
 
 </table>
+
+
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/leftSidebarAdm.js"></script>
+
 </body>
 </html>
 

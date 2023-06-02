@@ -6,4 +6,7 @@ import java.util.List;
 
 public interface CategoryProductService {
     public List<Category> getAllCategoriesProducts();
+    public Category getByIdCategory(int id);
+    public void updateCategory(Category category);
+    public void deleteCategory(int id);
 }

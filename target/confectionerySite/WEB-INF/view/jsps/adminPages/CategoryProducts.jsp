@@ -26,19 +26,10 @@
         }
     </style>
 
-
-
-
-
-
-
-
-
-
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/leftSidebarAdm.css">
-
-
-
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
 <body>
 
@@ -53,14 +44,16 @@
     </tr>
     <c:forEach var="category" items="${categories}" >
         <tr>
-            <td>${category.id}</td>
-            <td>${category.name}</td>
-            <td>${category.description}</td>
-
+            <td class="id">${category.id}</td>
+            <td class="name">${category.name}</td>
+            <td class="description">${category.description}</td>
+            <td><button class="updateBtn">Обновить</button> </td>
+            <td><button class="deleteBtn">Удалить</button> </td>
         </tr>
     </c:forEach>
 
 </table>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/leftSidebarAdm.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/CategoryAdm.js"></script>
 </body>
 </html>

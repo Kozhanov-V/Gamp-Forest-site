@@ -62,7 +62,8 @@
             <td>${purchase.quantity}</td>
             <td>${purchase.purchaseDate}</td>
             <td>${purchase.purchasePrice}</td>
-
+            <td><button class="updateBtn">Обновить</button> </td>
+            <td><button class="deleteBtn">Удалить</button> </td>
         </tr>
     </c:forEach>
 
