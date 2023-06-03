@@ -12,7 +12,7 @@
 
 ## Как начать :rocket:
 ### Требования 
-- Java Development Kit (JDK) 11 или выше.
+- Java Development Kit (JDK) 18 или выше.
 - MySQL сервер.
 - Apache Tomcat 9.4.
 - Apache Maven.
