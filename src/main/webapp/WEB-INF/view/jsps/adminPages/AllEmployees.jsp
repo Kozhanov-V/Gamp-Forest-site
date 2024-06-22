@@ -39,21 +39,31 @@
         <th>email</th>
         <th>Позиция работника</th>
         <th>Роли</th>
-        <th>enabled</th>
+        <th>Управлениями ролями</th>
+        <th>Активен аккаунт</th>
     </tr>
     <c:forEach var="employee" items="${employeeList}">
         <tr>
-            <td>${employee.id}</td>
-            <td>${employee.fullName}</td>
-            <td>${employee.phone}</td>
-            <td>${employee.email}</td>
-            <td>${employee.position}</td>
+            <td class="id">${employee.id}</td>
+            <td class="fullName">${employee.fullName}</td>
+            <td class="phone">${employee.phone}</td>
+            <td class="email">${employee.email}</td>
+            <td class="position">${employee.position}</td>
             <td>
-            <c:forEach var="role" items="${employee.roles}">
-                <c:out value="${role.name}"/><br/>
-            </c:forEach>
+                <c:forEach var="role" items="${employee.roles}">
+                    <div style="float: left;">
+                        <c:out value="${role.name}"/>
+                    </div>
+                    <div style="float: right;">
+                        <button>Удалить</button>
+                    </div>
+                    <br style="clear: both;">
+                </c:forEach>
             </td>
+
+
             <td>${employee.enabled}</td>
+
             <td><button class="updateBtn">Обновить</button> </td>
             <td><button class="deleteBtn">Удалить</button> </td>
 
@@ -63,5 +73,6 @@
 
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/leftSidebarAdm.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/EmployeeAdm.js"></script>
 </body>
 </html>

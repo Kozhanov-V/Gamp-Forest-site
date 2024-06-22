@@ -1,6 +1,7 @@
 package com.kozhanov.confectionerySite.dao.impl;
 
 import com.kozhanov.confectionerySite.dao.EmployeeDAO;
+import com.kozhanov.confectionerySite.entity.Client;
 import com.kozhanov.confectionerySite.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -13,6 +14,7 @@ import javax.persistence.NoResultException;
 import java.util.List;
 
 @Repository
+
 public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Autowired
@@ -25,6 +27,19 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         Employee employee;
         try{
             employee = (Employee) session.createQuery("from Employee where phone = :phone").setParameter("phone",phone).list().get(0);
+        }catch (NoResultException e){
+            employee =null;
+        }
+        return employee;
+    }
+
+    @Override
+    @Transactional
+    public Employee getEmployeeById(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Employee employee;
+        try{
+            employee = (Employee) session.createQuery("from Employee where id = :id").setParameter("id",id).getSingleResult();
         }catch (NoResultException e){
             employee =null;
         }
@@ -46,6 +61,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     @Override
+    @Transactional
     public Employee getEmployeeByLoginAndPassword(String login, String password) {
        Session session = sessionFactory.getCurrentSession();
         Query<Employee> query = session.createQuery("FROM Employee WHERE (phone = :login OR email = :login) AND password = :password");
@@ -61,10 +77,25 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     @Override
+    @Transactional
     public List<Employee> getAllEmployee() {
         Session session = sessionFactory.getCurrentSession();
         Query<Employee> query = session.createQuery("FROM Employee");
         List<Employee> employeeList = query.getResultList();
         return employeeList;
+    }
+
+    @Override
+    @Transactional
+    public void updateEmployee(Employee employee) {
+        Session session = sessionFactory.getCurrentSession();
+        session.update(employee);
+    }
+
+    @Override
+    @Transactional
+    public void deleteEmployee(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        session.delete(getEmployeeById(id));
     }
 }

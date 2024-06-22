@@ -140,7 +140,11 @@ public class AdminController {
         return new ResponseEntity<>("Успешно обновлено", HttpStatus.OK);
     }
 
-
+    @PostMapping("/api/employee/update")
+    public ResponseEntity<String> updateEmployee(@RequestBody Employee employee) {
+        employeeService.updateEmployee(employee);
+        return new ResponseEntity<>("Успешно обновлено", HttpStatus.OK);
+    }
 
 
     @PostMapping("/api/client/delete")
@@ -160,7 +164,11 @@ public class AdminController {
       categoryProductService.deleteCategory(id);
       return new ResponseEntity<>("Успешно обновлено", HttpStatus.OK);
     }
-
+    @PostMapping("/api/employee/delete")
+    public ResponseEntity<String> deleteEmployee(@RequestParam(name = "id") int id) {
+        employeeService.deleteEmployees(id);
+        return new ResponseEntity<>("Успешно обновлено", HttpStatus.OK);
+    }
 
 
 }
